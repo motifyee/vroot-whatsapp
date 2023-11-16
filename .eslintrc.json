@@ -17,7 +17,9 @@
         "skipWords": [
           "dict",
           "utils",
-          "vroot"
+          "urls",
+          "vroot",
+          "tailwindcss"
         ],
         "skipIfMatch": [
           "http://[^s]*",
