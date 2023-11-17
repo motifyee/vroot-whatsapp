@@ -3,5 +3,29 @@
 	height: 100%;
 	width: 100%;
 	min-width: 600px;
+	max-width: 1600px;
 	border: 1px solid #ccc;
+
+	--app-background: #0c1317;
+	--app-background-deeper: #0a1014;
+	--background-default: #111b21;
+	--popup-panel-background: #111b21;
+
+	--primary: #d1d7db;
+	--primary-title: rgba(233, 237, 239, 0.88);
+	--primary-muted: #667781;
+	--primary-strong: #e9edef;
+	--primary-stronger: rgba(233, 237, 239, 0.88);
+	--primary-strongest: #e9edef;
+
+	--input-placeholder: #8696a0;
+}
+
+app-whatsapp-chat {
+	flex: 1;
+}
+
+app-whatsapp-friends-list {
+	min-width: 300px;
+	width: clamp(330px, 40%, 480px);
 }

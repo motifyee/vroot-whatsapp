@@ -2,17 +2,24 @@
 
 <div class="search">
 	<div class="search__input">
-		<div class="search__input__icon">search</div>
+		<div class="search__input__icon">
+			<span [innerHTML]="searchIcon | bypassHtmlSanitizer"></span>
+		</div>
 		<div class="search__input__text">
 			<input type="text" placeholder="Search or start new chat" />
 		</div>
 	</div>
 
 	<div class="search__actions">
-		<div class="search__actions__item">chat</div>
-		<div class="search__actions__item">more_vert</div>
+		<div class="search__actions__icon">
+			<span [innerHTML]="filterIcon | bypassHtmlSanitizer"></span>
+		</div>
+		<!-- <div class="search__actions__item">chat</div> -->
+		<!-- <div class="search__actions__item">more_vert</div> -->
 	</div>
 </div>
+
+<!-- <div class="separator"><div></div></div> -->
 
 <div class="list">
 	<div class="item">

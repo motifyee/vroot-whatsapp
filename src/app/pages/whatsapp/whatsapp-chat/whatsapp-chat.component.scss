@@ -3,16 +3,30 @@
 :host {
 	display: flex;
 	flex-direction: column;
-	height: 100%;
-	width: 100%;
+
+	position: relative;
 
 	border: 1px solid #ccc;
-	background-color: #7e7c7c;
+	background-color: var(--app-background);
 
 	padding: 0 20px;
 
 	--user-color: #005c4b;
 	--friend-color: #202c33;
+}
+
+.background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	// z-index: -1;
+
+	background-image: url('/assets/images/whatsapp-bg.png');
+	opacity: 0.06;
+	background-size: contain;
+	background-repeat: repeat;
 }
 
 .message {
