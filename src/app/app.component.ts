@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NgSwitch, NgSwitchDefault, NgSwitchCase } from '@angular/common';
-import { WhatsappComponent } from './pages/whatsapp.component';
+import { WhatsappComponent } from './pages/whatsapp/whatsapp.component';
 
 @Component({
 	selector: 'app-root',
