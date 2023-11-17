@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+	--tw-ring-offset-shadow: var(--tw-ring-offset-shadow, 0 0 #0000);
+	--tw-ring-shadow: var(--tw-ring-shadow, 0 0 #0000);
+	height: 100%;
+	width: 100%;
+	min-width: 600px;
+	overflow: hidden;
+}
+
+body {
+	height: 100%;
+	width: 100%;
+}

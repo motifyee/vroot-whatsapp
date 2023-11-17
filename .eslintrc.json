@@ -1,113 +1,120 @@
 {
-  "root": true,
-  "ignorePatterns": [
-    "projects/**/*"
-  ],
-  "plugins": [
-    "spellcheck"
-  ],
-  "rules": {
-    "spellcheck/spell-checker": [
-      1,
-      {
-        "comments": true,
-        "strings": true,
-        "templates": true,
-        "lang": "en_US",
-        "skipWords": [
-          "dict",
-          "utils",
-          "urls",
-          "vroot",
-          "tailwindcss"
-        ],
-        "skipIfMatch": [
-          "http://[^s]*",
-          "^[-\\w]+\/[-\\w\\.]+$"
-        ],
-        "skipWordIfMatch": [
-          "^foobar.*$"
-        ],
-        "minLength": 3
-      }
-    ]
-  },
-  "overrides": [
-    {
-      "files": [
-        "*.ts"
-      ],
-      "extends": [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@angular-eslint/recommended",
-        "plugin:@angular-eslint/template/process-inline-templates",
-        "plugin:prettier/recommended"
-      ],
-      "rules": {
-        "@angular-eslint/directive-selector": [
-          "error",
-          {
-            "type": "attribute",
-            "prefix": "app",
-            "style": "camelCase"
-          }
-        ],
-        "@angular-eslint/component-selector": [
-          "error",
-          {
-            "type": "element",
-            "prefix": "app",
-            "style": "kebab-case"
-          }
-        ],
-        "max-lines": [
-          "error",
-          300
-        ],
-        "max-depth": [
-          "error",
-          4
-        ],
-        "max-nested-callbacks": [
-          "error",
-          3
-        ],
-        "max-lines-per-function": [
-          "error",
-          {
-            "max": 30,
-            "skipBlankLines": true,
-            "skipComments": true
-          }
-        ],
-        "no-unused-labels": "error",
-        "no-unused-vars": "error",
-        "no-unused-expressions": "error",
-        "no-unused-private-class-members": "error"
-      }
-    },
-    {
-      "files": [
-        "*.html"
-      ],
-      "extends": [
-        "plugin:@angular-eslint/template/recommended",
-        "plugin:@angular-eslint/template/accessibility",
-        "plugin:prettier/recommended"
-      ],
-      "rules": {
-        "max-lines": [
-          "error",
-          300
-        ],
-        "prettier/prettier": [
-          "error",
-          {
-            "parser": "angular"
-          }
-        ]
-      }
-    }
-  ]
+	"root": true,
+	"ignorePatterns": [
+		"projects/**/*"
+	],
+	"plugins": [
+		"spellcheck"
+	],
+	"rules": {
+		"spellcheck/spell-checker": [
+			1,
+			{
+				"comments": true,
+				"strings": true,
+				"templates": true,
+				"lang": "en_US",
+				"skipWords": [
+					"dict",
+					"utils",
+					"urls",
+					"vroot",
+					"tailwindcss",
+					"whatsapp",
+					"rxjs",
+					"sanitizer",
+					"dom",
+					"impl",
+					"svg",
+					"ng"
+				],
+				"skipIfMatch": [
+					"http://[^s]*",
+					"^[-\\w]+/[-\\w\\.]+$"
+				],
+				"skipWordIfMatch": [
+					"^foobar.*$"
+				],
+				"minLength": 3
+			}
+		]
+	},
+	"overrides": [
+		{
+			"files": [
+				"*.ts"
+			],
+			"extends": [
+				"eslint:recommended",
+				"plugin:@typescript-eslint/recommended",
+				"plugin:@angular-eslint/recommended",
+				"plugin:@angular-eslint/template/process-inline-templates",
+				"plugin:prettier/recommended"
+			],
+			"rules": {
+				"@angular-eslint/directive-selector": [
+					"error",
+					{
+						"type": "attribute",
+						"prefix": "app",
+						"style": "camelCase"
+					}
+				],
+				"@angular-eslint/component-selector": [
+					"error",
+					{
+						"type": "element",
+						"prefix": "app",
+						"style": "kebab-case"
+					}
+				],
+				"max-lines": [
+					"error",
+					300
+				],
+				"max-depth": [
+					"error",
+					4
+				],
+				"max-nested-callbacks": [
+					"error",
+					3
+				],
+				"max-lines-per-function": [
+					"error",
+					{
+						"max": 30,
+						"skipBlankLines": true,
+						"skipComments": true
+					}
+				],
+				"no-unused-labels": "error",
+				// "no-unused-vars": "error",
+				"no-unused-expressions": "error",
+				"no-unused-private-class-members": "error"
+			}
+		},
+		{
+			"files": [
+				"*.html"
+			],
+			"extends": [
+				"plugin:@angular-eslint/template/recommended",
+				"plugin:@angular-eslint/template/accessibility",
+				"plugin:prettier/recommended"
+			],
+			"rules": {
+				"max-lines": [
+					"error",
+					300
+				],
+				"prettier/prettier": [
+					"error",
+					{
+						"parser": "angular"
+					}
+				]
+			}
+		}
+	]
 }
