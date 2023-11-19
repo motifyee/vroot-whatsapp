@@ -4,7 +4,6 @@
 	width: 100%;
 	min-width: 600px;
 	max-width: 1600px;
-	border: 1px solid #ccc;
 
 	--app-background: #0c1317;
 	--app-background-deeper: #0a1014;
@@ -12,11 +11,52 @@
 	--popup-panel-background: #111b21;
 
 	--primary: #d1d7db;
-	--primary-title: rgba(233, 237, 239, 0.88);
+	--primary-title: #e9edefe0;
 	--primary-muted: #667781;
 	--primary-strong: #e9edef;
-	--primary-stronger: rgba(233, 237, 239, 0.88);
+	--primary-stronger: #e9edefe0;
 	--primary-strongest: #e9edef;
+
+	--secondary: #8696a0;
+	--secondary-light: #54656f;
+	--secondary-lighter: #667781;
+	--secondary-stronger: #d1d7db;
+
+	--border-bubble: rgba(233, 237, 239, 0.12);
+	--border-deeper: rgba(134, 150, 160, 0.15);
+	--border-default: rgba(134, 150, 160, 0.15);
+	--border-list: rgba(134, 150, 160, 0.15);
+	--border-panel: rgba(134, 150, 160, 0.15);
+	--border-strong: rgba(134, 150, 160, 0.15);
+	--border-stronger: rgba(134, 150, 160, 0.15);
+	--border-document-footer: rgba(134, 150, 160, 0.15);
+
+	--background-default: #111b21;
+	--background-document-with-captions: #111b21;
+	--background-default-active: #2a3942;
+	--background-default-hover: #202c33;
+	--background-lighter: #233138;
+	--background-lighter-content: #182229;
+	--background-lighter-active: #182229;
+	--background-lighter-hover: #182229;
+	--background-lightest: #3b4a54;
+	--background-lightest-content: #233138;
+	--background-lightest-active: #233138;
+	--background-lightest-hover: #233138;
+
+	--panel-background: #111b21;
+	--panel-background-active: #111a20;
+	--panel-background-colored: #202c33;
+	--panel-background-colored-deeper: #202c33;
+	--panel-background-deep: #0f191f;
+	--panel-background-deeper: #101a20;
+	--panel-background-hover: #101a20;
+	--panel-background-lighter: #101a20;
+	--panel-header-background: #202c33;
+	--panel-header-icon: #aebac1;
+	--conversation-header-border: #8696a026;
+	--panel-input-background: #222e35;
+	--panel-primary: #e9edef59;
 
 	--input-placeholder: #8696a0;
 }

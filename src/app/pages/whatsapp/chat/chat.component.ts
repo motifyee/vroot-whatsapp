@@ -18,8 +18,8 @@ import { UiUtilService } from 'src/app/core/services/ui-util/ui-util.service';
 	// eslint-disable-next-line @angular-eslint/no-host-metadata-property
 	host: { class: 'app-whatsapp-chat' },
 	selector: 'app-whatsapp-chat',
-	templateUrl: './whatsapp-chat.component.html',
-	styleUrls: ['./whatsapp-chat.component.scss'],
+	templateUrl: './chat.component.html',
+	styleUrls: ['./chat.component.scss'],
 	imports: [BypassHtmlSanitizerPipe],
 	providers: [UiUtilService],
 })

@@ -12,6 +12,7 @@
 }
 
 .search {
+	margin-top: 10px;
 	padding-inline: 10px;
 	display: flex;
 	flex-direction: row;
@@ -78,16 +79,75 @@
 	flex-direction: column;
 	height: 100%;
 	width: 100%;
+	padding-top: 10px;
 	.item {
+		height: 60px;
+		width: 100%;
+
+		.row {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			height: 100%;
+			width: 100%;
+			padding-inline: 10px;
+		}
+
+		border-top: 1px solid var(--border-list);
+		cursor: pointer;
+
+		&.active {
+			background-color: var(--background-default-active);
+		}
+	}
+	.item:not(.active):hover {
+		background-color: var(--background-default-hover);
+	}
+
+	.item__avatar {
+		background-color: var(--background-default-hover);
+		border: 1px solid var(--border-list);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 40px;
+		width: 40px;
+		border-radius: 50%;
+		margin-right: 10px;
+		img {
+			height: 100%;
+			width: 100%;
+			border-radius: 50%;
+		}
+	}
+
+	.item__content {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		height: 100%;
+		width: 100%;
+		.name {
+			font-size: 16px;
+			font-weight: 500;
+			color: var(--primary-strong);
+		}
+		.message {
+			font-size: 12px;
+			font-weight: 400;
+			color: var(--secondary);
+		}
+	}
+
+	.item__actions {
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		height: 60px;
-		width: 100%;
-		padding: 0 10px;
-		border-bottom: 1px solid #f5f5f5;
-
-		.item__avatar {
+		justify-content: space-between;
+		height: 100%;
+		width: 100px;
+		.list-item__actions__icon {
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -96,52 +156,9 @@
 			border-radius: 50%;
 			background-color: #f5f5f5;
 			margin-right: 10px;
-			img {
-				height: 100%;
-				width: 100%;
-				border-radius: 50%;
-			}
-		}
-
-		.item__content {
-			flex: 1;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			height: 100%;
-			width: 100%;
-			.name {
-				font-size: 16px;
-				font-weight: 500;
+			i {
+				font-size: 20px;
 				color: #000;
-			}
-			.msg {
-				font-size: 12px;
-				font-weight: 400;
-				color: #000;
-			}
-		}
-
-		.item__actions {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			justify-content: space-between;
-			height: 100%;
-			width: 100px;
-			.list-item__actions__icon {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				height: 40px;
-				width: 40px;
-				border-radius: 50%;
-				background-color: #f5f5f5;
-				margin-right: 10px;
-				i {
-					font-size: 20px;
-					color: #000;
-				}
 			}
 		}
 	}

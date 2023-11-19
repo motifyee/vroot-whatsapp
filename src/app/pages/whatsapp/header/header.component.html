@@ -4,8 +4,7 @@
 	<div class="whatsapp-header__user">
 		<img src="assets/images/user-1.jpg" alt="user" />
 	</div>
-	<div class="whatsapp-header__menu">
-		<!-- <mat-icon>more_vert</mat-icon> -->
-		icon
-	</div>
+	<div
+		class="whatsapp-header__menu"
+		[innerHTML]="menuIcon | bypassHtmlSanitizer"></div>
 </div>
