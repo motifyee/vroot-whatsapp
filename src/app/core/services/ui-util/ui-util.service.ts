@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { forkJoin } from 'rxjs';
 
 @Injectable()
 export class UiUtilService {
@@ -11,5 +12,10 @@ export class UiUtilService {
 		return this.http.get(`assets/icons/${iconName}.svg`, {
 			responseType: 'text',
 		});
+	}
+
+	importIcons(...iconNames: string[]) {
+		const icons = iconNames.map(iconName => this.importIcon(iconName));
+		return forkJoin(icons);
 	}
 }

@@ -2,55 +2,34 @@
 
 <div class="background"></div>
 
-<div class="message">
-	<div class="message__content">
-		<span [innerHTML]="tailOut | bypassHtmlSanitizer"> </span>
+<app-whatsapp-header></app-whatsapp-header>
 
-		<div class="message__text">
-			<p>Hey, how are you?</p>
-		</div>
-		<div class="message__time">
-			<p>10:00 PM</p>
-		</div>
-	</div>
-</div>
+<div class="messages no-scrollbar">
+	<div
+		*ngFor="let msg of messages"
+		class="message"
+		[class.message--right]="msg.received">
+		<div class="message__content">
+			<span [innerHTML]="tailOutIcon | bypassHtmlSanitizer"> </span>
 
-<div class="message message--right">
-	<div class="message__content">
-		<span [innerHTML]="tailOut | bypassHtmlSanitizer"> </span>
-
-		<div class="message__text">
-			<p>Hey, I'm fine, how are you?</p>
-		</div>
-
-		<div class="message__time">
-			<p>10:00 PM</p>
+			<div class="message__text">
+				<p>{{ msg.text }}</p>
+			</div>
+			<div class="message__time">
+				<p>{{ msg.time }}</p>
+			</div>
 		</div>
 	</div>
 </div>
 
-<div class="message">
-	<div class="message__content">
-		<span [innerHTML]="tailOut | bypassHtmlSanitizer"> </span>
-
-		<div class="message__text">
-			<p>Hey, I'm fine, how are you?</p>
-		</div>
-		<div class="message__time">
-			<p>10:00 AM</p>
-		</div>
+<div class="send">
+	<div class="send__input">
+		<input type="text" placeholder="Send a message" />
 	</div>
-</div>
 
-<div class="message">
-	<div class="message__content">
-		<span [innerHTML]="tailOut | bypassHtmlSanitizer"> </span>
-
-		<div class="message__text">
-			<p>Hey,</p>
-		</div>
-		<div class="message__time">
-			<p>10:00 AM</p>
+	<div class="send__icons">
+		<div class="send__icon">
+			<span [innerHTML]="sendIcon | bypassHtmlSanitizer"></span>
 		</div>
 	</div>
 </div>

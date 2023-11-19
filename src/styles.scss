@@ -15,3 +15,12 @@ body {
 	height: 100%;
 	width: 100%;
 }
+
+.no-scrollbar {
+	scrollbar-width: none; // Firefox
+	-ms-overflow-style: none; // IE 10+
+	&::-webkit-scrollbar {
+		// Safari and Chrome
+		display: none;
+	}
+}

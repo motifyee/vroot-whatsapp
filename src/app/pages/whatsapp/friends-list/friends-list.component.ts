@@ -21,13 +21,12 @@ export class WhatsappFriendsListComponent implements OnInit {
 		private cd: ChangeDetectorRef,
 	) {}
 	ngOnInit() {
-		forkJoin([
-			this.uiUtil.importIcon('search'),
-			this.uiUtil.importIcon('filter'),
-		]).subscribe(([search, filter]) => {
-			this.searchIcon = search;
-			this.filterIcon = filter;
-			this.cd.detectChanges();
-		});
+		this.uiUtil
+			.importIcons('search', 'filter')
+			.subscribe(([search, filter]) => {
+				this.searchIcon = search;
+				this.filterIcon = filter;
+				this.cd.detectChanges();
+			});
 	}
 }
