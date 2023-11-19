@@ -54,6 +54,20 @@ export class WhatsappChatComponent implements OnInit {
 		{ text: 'What about you?', time: '10:12 AM' },
 		{ text: "It's going great!", time: '10:12 AM', received: true },
 		{ text: 'What about you?', time: '10:12 AM', received: true },
+		{ text: 'Hey, how are you?', time: '10:12 AM' },
+		{ text: "I'm fine, how about you?", time: '10:12 AM', received: true },
+		{ text: "I'm fine too, thanks", time: '10:12 AM' },
+		{ text: "How's your day going?", time: '10:12 AM' },
+		{ text: "It's going great!", time: '10:12 AM', received: true },
+		{ text: 'What about you?', time: '10:12 AM', received: true },
+		{ text: "It's going great!", time: '10:12 AM' },
+		{ text: 'What about you?', time: '10:12 AM' },
+		{ text: "It's going great!", time: '10:12 AM', received: true },
+		{ text: 'What about you?', time: '10:12 AM', received: true },
+		{ text: "It's going great!", time: '10:12 AM' },
+		{ text: 'What about you?', time: '10:12 AM' },
+		{ text: "It's going great!", time: '10:12 AM', received: true },
+		{ text: 'What about you?', time: '10:12 AM', received: true },
 	];
 
 	ngOnInit(): void {
