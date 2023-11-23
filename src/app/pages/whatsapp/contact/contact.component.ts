@@ -15,14 +15,16 @@ export class WhatsappContactComponent implements OnInit {
 	messageIcon = '';
 	callIcon = '';
 	calendarIcon = '';
+	emailIcon = '';
 
 	ngOnInit(): void {
 		this.uiUtils
-			.importIcons('message', 'call', 'calendar')
-			.subscribe(([message, call, calendar]) => {
+			.importIcons('message', 'call', 'calendar', 'email')
+			.subscribe(([message, call, calendar, email]) => {
 				this.messageIcon = message;
 				this.callIcon = call;
 				this.calendarIcon = calendar;
+				this.emailIcon = email;
 
 				this._cd.detectChanges();
 			});

@@ -31,7 +31,7 @@
 	<p>INFORMATION</p>
 
 	<div class="info">
-		<div class="icon">email</div>
+		<div class="icon" [innerHTML]="emailIcon | bypassHtmlSanitizer"></div>
 		<div class="data">
 			<div class="value">catherinesinu&#64;cisco.com</div>
 			<div class="label">Work</div>
