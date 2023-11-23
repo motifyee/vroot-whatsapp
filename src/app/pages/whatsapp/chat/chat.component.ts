@@ -1,5 +1,3 @@
-// Path: src/app/pages/whatsapp/whatsapp-chat/whatsapp-chat.component.ts
-
 import { NgFor } from '@angular/common';
 import {
 	Component,
@@ -17,15 +15,6 @@ import { WhatsappHeaderComponent } from '../header/header.component';
 import { Chat } from '../model/chat';
 import { WhatsappMessageComponent } from '../message/message.component';
 import { Message, MessageStatusIcon } from '../model/message';
-
-// import { ActivatedRoute } from '@angular/router';
-// import { ChatService } from 'src/app/services/chat.service';
-// import { Chat } from 'src/app/models/chat.model';
-// import { Message } from 'src/app/models/message.model';
-// import { AuthService } from 'src/app/services/auth.service';
-// import { User } from 'src/app/models/user.model';
-// import { UserService } from 'src/app/services/user.service';
-// import { Subscription } from 'rxjs';
 
 @Component({
 	standalone: true,
@@ -45,16 +34,11 @@ export class WhatsappChatComponent implements OnInit {
 	uiUtil = inject(UiUtilService);
 	cd = inject(ChangeDetectorRef);
 
-	@ViewChild('messages') messagesRef?: ElementRef<HTMLDivElement>;
+	@ViewChild('messagesRef') messagesRef?: ElementRef<HTMLDivElement>;
 
 	tailOutIcon = '';
 	sendIcon = '';
 	menuIcon = '';
-
-	msgIcons = {} as {
-		// eslint-disable-next-line no-unused-vars
-		[key in MessageStatusIcon]: string;
-	};
 
 	@Input() chat?: Chat;
 
@@ -66,30 +50,60 @@ export class WhatsappChatComponent implements OnInit {
 		this.loadIcons();
 	}
 
+	uploadIconsNames = [
+		'folder',
+		'image',
+		'camera',
+		'video',
+		'smiley',
+	] as Icon[];
+	statusIconsNames = ['pending', 'check', 'double-check'] as Icon[];
+	private _icons = [
+		'tail-out',
+		'send',
+		'menu',
+		'message',
+		...this.uploadIconsNames,
+		...this.statusIconsNames,
+	];
+	// eslint-disable-next-line no-unused-vars
+	icons = {} as { [key in Icon]: string };
+	// eslint-disable-next-line no-unused-vars
+	statusIcons = {} as { [key in MessageStatusIcon]: string };
 	loadIcons(): void {
-		this.uiUtil
-			.importIcons(
-				'tail-out',
-				'send',
-				'menu',
-				'pending',
-				'check',
-				'double-check',
-			)
-			.subscribe(([tailOut, send, menu, pending, check, doubleCheck]) => {
-				this.tailOutIcon = tailOut;
-				this.sendIcon = send;
-				this.menuIcon = menu;
+		this.uiUtil.importIcons(...this._icons).subscribe(_icons => {
+			const icons = this._icons.reduce(
+				(acc, cur, idx) => ({ ...acc, [cur]: _icons[idx] }),
+				{},
+				// eslint-disable-next-line no-unused-vars
+			) as { [key in (typeof this._icons)[number]]: string };
 
-				this.msgIcons = {
-					'': '',
-					pending,
-					check,
-					'double-check': doubleCheck,
-				};
+			this.icons = {
+				tailOut: icons['tail-out'],
+				send: icons['send'],
+				menu: icons['menu'],
+				message: icons['message'],
 
-				this.cd.detectChanges();
-			});
+				pending: icons['pending'],
+				check: icons['check'],
+				doubleCheck: icons['double-check'],
+
+				camera: icons['camera'],
+				folder: icons['folder'],
+				image: icons['image'],
+				smiley: icons['smiley'],
+				video: icons['video'],
+			};
+
+			this.statusIcons = {
+				'': '',
+				pending: icons['pending'],
+				check: icons['check'],
+				doubleCheck: icons['double-check'],
+			};
+
+			this.cd.detectChanges();
+		});
 	}
 
 	msgTrackByFn(_: number, msg: Message): string {
@@ -98,7 +112,6 @@ export class WhatsappChatComponent implements OnInit {
 
 	scrollToBottom(): void {
 		setTimeout(() => {
-			// const el = document.querySelector('app-whatsapp-chat .messages');
 			const el = this.messagesRef?.nativeElement;
 			el?.scrollTo({
 				behavior: 'smooth',
@@ -113,4 +126,25 @@ export class WhatsappChatComponent implements OnInit {
 			);
 		}, 30);
 	}
+
+	previousMessage(index: number): Message | undefined {
+		return this.chat?.messages[index - 1];
+	}
+	nextMessage(index: number): Message | undefined {
+		return this.chat?.messages[index + 1];
+	}
 }
+
+type Icon =
+	| 'tailOut'
+	| 'send'
+	| 'menu'
+	| 'pending'
+	| 'check'
+	| 'doubleCheck'
+	| 'message'
+	| 'camera'
+	| 'folder'
+	| 'image'
+	| 'smiley'
+	| 'video';

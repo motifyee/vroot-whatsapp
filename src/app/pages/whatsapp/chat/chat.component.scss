@@ -9,6 +9,7 @@
 
 	--user-color: #005c4b;
 	--friend-color: #202c33;
+	--stroke: var(--primary);
 }
 
 .background {
@@ -31,11 +32,11 @@ app-whatsapp-header {
 }
 
 .messages {
-	padding: 20px 28px;
+	flex: 1;
 	z-index: 1;
+	padding: 20px 28px;
 
 	position: relative;
-	flex: 1;
 	overflow-x: hidden;
 	overflow-y: auto;
 }
@@ -78,5 +79,25 @@ app-whatsapp-header {
 
 	.send__icon {
 		color: var(--icon);
+	}
+}
+
+.actions {
+	display: flex;
+	align-items: center;
+	padding: 0 20px 10px 20px;
+	gap: 12px;
+
+	background-color: var(--rich-text-panel-background);
+	z-index: 1;
+
+	.actions__icon {
+		cursor: pointer;
+		&:hover {
+			--stroke: var(--icon-bright-accent);
+		}
+		&:active {
+			--stroke: var(--icon-bright-highlight);
+		}
 	}
 }

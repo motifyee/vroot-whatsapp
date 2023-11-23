@@ -1,33 +1,52 @@
 .message {
 	display: flex;
+	gap: 10px;
 	align-items: center;
-	margin-bottom: 20px;
+	margin-bottom: 5px;
+	--fill: #ccc;
+	--storke: #aaa;
 
-	.message__content {
-		display: flex;
-		flex-direction: column;
-		position: relative;
-
-		background-color: var(--friend-color);
-		padding: 10px 20px;
-		border-radius: 0 7.5px 7.5px 7.5px;
-		border: 0px solid rgb(233, 237, 239);
-		color: #fff;
-
-		font-family: 'Segoe UI', 'Helvetica Neue', Helvetica, 'Lucida Grande',
-			Arial, Ubuntu, Cantarell, 'Fira Sans', sans-serif;
-		font-weight: 400;
-		font-size: 14.2px;
-
-		.tail-out {
-			position: absolute;
-			top: 0;
-			left: -8px;
-			transform: rotateY(180deg);
-			color: var(--friend-color);
+	.avatar {
+		&:not(:has(img)) {
+			border: 0;
+			height: 0;
 		}
 	}
+
+	&.start {
+		justify-content: flex-start;
+	}
 }
+
+.message__info {
+	color: white;
+}
+
+.message__content {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+
+	background-color: var(--friend-color);
+	padding: 10px 20px;
+	border-radius: 5px;
+	border: 0px solid rgb(233, 237, 239);
+	color: #fff;
+
+	font-family: 'Segoe UI', 'Helvetica Neue', Helvetica, 'Lucida Grande', Arial,
+		Ubuntu, Cantarell, 'Fira Sans', sans-serif;
+	font-weight: 400;
+	font-size: 14.2px;
+
+	.tail-out {
+		position: absolute;
+		top: 0;
+		left: -8px;
+		transform: rotateY(180deg);
+		color: var(--friend-color);
+	}
+}
+
 .message__delivery {
 	padding-block-start: 5px;
 	.message__delivery--content {
@@ -50,7 +69,7 @@
 
 	.message__content {
 		background-color: #dcf8c6;
-		border-radius: 7.5px 0 7.5px 7.5px;
+		// border-radius: 7.5px 0 7.5px 7.5px;
 		background-color: var(--user-color);
 
 		.tail-out {

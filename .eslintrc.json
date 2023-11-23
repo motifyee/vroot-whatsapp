@@ -51,7 +51,8 @@
 					"idx",
 					"keydown",
 					"keyup",
-					"keypress"
+					"keypress",
+					"acc"
 				],
 				"skipIfMatch": [
 					"http://[^s]*",

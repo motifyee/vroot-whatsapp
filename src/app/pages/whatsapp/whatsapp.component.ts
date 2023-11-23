@@ -57,11 +57,20 @@ export class WhatsappComponent implements OnInit {
 		const idx = Math.floor(Math.random() * messages.length || 1 - 1),
 			msg: Message = message(this.messages[idx]);
 
-		msg.id = this.messages.length.toString();
+		msg.id = this.messages[this.messages.length - 1].id;
 		this.messages.push(msg);
 		this.cd.detectChanges();
 	}
-	@HostListener('window:keydown.a', ['$event'])
+
+	onOutletLoaded(
+		component: WhatsappChatComponent | WhatsappContactComponent,
+	) {
+		if (component instanceof WhatsappChatComponent) {
+			component.chat = this.chat;
+		}
+	}
+
+	@HostListener('window:keydown.a')
 	onKeydownHandler() {
 		this.addMessage();
 	}

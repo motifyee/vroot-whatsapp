@@ -7,6 +7,9 @@ export class BypassHtmlSanitizerPipe implements PipeTransform {
 	constructor(private sanitizer: DomSanitizer) {}
 
 	transform(html: string): SafeHtml {
+		if (!html) return html;
+		if (typeof html !== 'string') return html;
+
 		return this.sanitizer.bypassSecurityTrustHtml(html);
 	}
 }

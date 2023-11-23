@@ -1,26 +1,40 @@
-<div class="message" [class.message--right]="message.status">
-	<div class="message__content">
-		<span class="tail-out" [innerHTML]="tailOutIcon | bypassHtmlSanitizer">
-		</span>
+<div
+	class="message"
+	[class.message--right]="message.status"
+	[class.begin]="isFirstMessage"
+	[class.end]="isLastMessage">
+	<div class="avatar">
+		<img
+			*ngIf="isFirstMessage && !message.status"
+			src="assets/images/user-1.jpg"
+			alt="Avery" />
+	</div>
 
-		<div class="message__text">
-			<p>{{ message.id }}—{{ message.text }}</p>
+	<section>
+		<div *ngIf="isFirstMessage && !message.status" class="message__info">
+			INFO
 		</div>
+		<div class="message__content">
+			<div class="message__text">
+				<div>{{ message.id }}—{{ message.text }}</div>
+			</div>
 
-		<div class="message__delivery">
-			<div class="message__delivery--content">
-				<div class="message__time">
-					{{ message.time }}
-				</div>
-				<div>
-					<div
-						*ngIf="message.status"
-						[innerHTML]="
-							msgIcons(message.statusIcon) | bypassHtmlSanitizer
-						"
-						[style.color]="message.statusColor"></div>
+			<div *ngIf="message.status" class="message__delivery">
+				<div class="message__delivery--content">
+					<div class="message__time">
+						{{ message.time }}
+					</div>
+					<div>
+						<div
+							*ngIf="message.status"
+							[innerHTML]="
+								msgIcons(message.statusIcon)
+									| bypassHtmlSanitizer
+							"
+							[style.color]="message.statusColor"></div>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 </div>

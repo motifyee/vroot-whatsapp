@@ -1,5 +1,5 @@
 export type MessageStatus = 'pending' | 'sent' | 'delivered' | 'seen';
-export type MessageStatusIcon = '' | 'pending' | 'check' | 'double-check';
+export type MessageStatusIcon = '' | 'pending' | 'check' | 'doubleCheck';
 
 export interface IMessage {
 	id: string;
@@ -21,9 +21,9 @@ export class Message implements IMessage {
 			case 'sent':
 				return 'check';
 			case 'delivered':
-				return 'double-check';
+				return 'doubleCheck';
 			case 'seen':
-				return 'double-check';
+				return 'doubleCheck';
 		}
 		return '';
 	}

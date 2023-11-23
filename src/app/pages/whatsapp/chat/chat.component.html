@@ -4,12 +4,18 @@
 
 <app-whatsapp-header></app-whatsapp-header>
 
-<div #messages class="messages no-scrollbar">
+<div #messagesRef class="messages no-scrollbar">
 	<app-whatsapp-message
-		*ngFor="let msg of chat?.messages; trackBy: msgTrackByFn"
+		*ngFor="
+			let msg of chat?.messages;
+			let idx = index;
+			trackBy: msgTrackByFn
+		"
 		[message]="msg"
-		[statusIcons]="msgIcons"
-		[tailOutIcon]="tailOutIcon"
+		[prevMessage]="previousMessage(idx)"
+		[nextMessage]="nextMessage(idx)"
+		[statusIcons]="statusIcons"
+		[tailOutIcon]="icons.tailOut"
 		tailOutIcon="tailOutIcon"></app-whatsapp-message>
 </div>
 
@@ -20,7 +26,13 @@
 
 	<div class="send__icons">
 		<div class="send__icon">
-			<span [innerHTML]="sendIcon | bypassHtmlSanitizer"></span>
+			<span [innerHTML]="icons.send | bypassHtmlSanitizer"></span>
 		</div>
+	</div>
+</div>
+
+<div class="actions">
+	<div *ngFor="let icon of uploadIconsNames" class="actions__icon">
+		<span [innerHTML]="icons[icon] | bypassHtmlSanitizer"></span>
 	</div>
 </div>
