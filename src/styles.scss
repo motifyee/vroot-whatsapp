@@ -1,6 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'primeng/resources/themes/lara-light-blue/theme.css';
+@import 'primeng/resources/primeng.css';
+
+// @tailwind base;
+// @tailwind components;
+// @tailwind utilities;
 
 :root {
 	--tw-ring-offset-shadow: var(--tw-ring-offset-shadow, 0 0 #0000);
@@ -9,11 +12,29 @@
 	width: 100%;
 	min-width: 600px;
 	overflow: hidden;
+	margin: 0;
+
+	--stroke: #8a8989;
+	--stroke-width: 2;
+	--fill: none;
 }
 
 body {
 	height: 100%;
 	width: 100%;
+	margin: 0;
+}
+
+button {
+	cursor: pointer;
+	background-color: transparent;
+	border: 0;
+	padding: 0;
+	margin: 0;
+
+	&:focus {
+		outline: none;
+	}
 }
 
 .no-scrollbar {
@@ -22,5 +43,39 @@ body {
 	&::-webkit-scrollbar {
 		// Safari and Chrome
 		display: none;
+	}
+}
+
+.avatar {
+	width: 55px;
+	height: 55px;
+	border-radius: 50%;
+	border: 2px solid rgb(36, 222, 36);
+	padding: 1px;
+
+	&:hover {
+		background-color: #ccc;
+	}
+
+	&:active {
+		background-color: #aaa;
+	}
+
+	&:focus {
+		background-color: #ccc;
+	}
+
+	&:disabled {
+		background-color: #ccc;
+		cursor: not-allowed;
+	}
+
+	&.active {
+		background-color: #ccc;
+	}
+	img {
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
 	}
 }

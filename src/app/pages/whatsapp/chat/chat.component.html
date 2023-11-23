@@ -4,22 +4,13 @@
 
 <app-whatsapp-header></app-whatsapp-header>
 
-<div class="messages no-scrollbar">
-	<div
-		*ngFor="let msg of messages"
-		class="message"
-		[class.message--right]="msg.received">
-		<div class="message__content">
-			<span [innerHTML]="tailOutIcon | bypassHtmlSanitizer"> </span>
-
-			<div class="message__text">
-				<p>{{ msg.text }}</p>
-			</div>
-			<div class="message__time">
-				<p>{{ msg.time }}</p>
-			</div>
-		</div>
-	</div>
+<div #messages class="messages no-scrollbar">
+	<app-whatsapp-message
+		*ngFor="let msg of chat?.messages; trackBy: msgTrackByFn"
+		[message]="msg"
+		[statusIcons]="msgIcons"
+		[tailOutIcon]="tailOutIcon"
+		tailOutIcon="tailOutIcon"></app-whatsapp-message>
 </div>
 
 <div class="send">

@@ -3,6 +3,8 @@ import { RouterOutlet } from '@angular/router';
 import { NgSwitch, NgSwitchDefault, NgSwitchCase } from '@angular/common';
 import { WhatsappComponent } from './pages/whatsapp/whatsapp.component';
 
+import { CommonModule } from '@angular/common';
+
 @Component({
 	selector: 'app-root',
 	// eslint-disable-next-line @angular-eslint/no-host-metadata-property
@@ -16,6 +18,7 @@ import { WhatsappComponent } from './pages/whatsapp/whatsapp.component';
 		NgSwitchCase,
 		RouterOutlet,
 		WhatsappComponent,
+		CommonModule,
 	],
 	providers: [],
 	changeDetection: ChangeDetectionStrategy.OnPush,

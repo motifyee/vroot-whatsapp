@@ -1,10 +1,22 @@
 // Path: src/app/pages/whatsapp/whatsapp-chat/whatsapp-chat.component.ts
 
-import { CommonModule, NgFor } from '@angular/common';
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { NgFor } from '@angular/common';
+import {
+	Component,
+	OnInit,
+	ChangeDetectorRef,
+	Input,
+	inject,
+	ViewChild,
+	ElementRef,
+	afterRender,
+} from '@angular/core';
 import { BypassHtmlSanitizerPipe } from 'src/app/core/pipes/bypass-html-sanitizer/bypass-html-sanitizer.pipe';
 import { UiUtilService } from 'src/app/core/services/ui-util/ui-util.service';
 import { WhatsappHeaderComponent } from '../header/header.component';
+import { Chat } from '../model/chat';
+import { WhatsappMessageComponent } from '../message/message.component';
+import { Message, MessageStatusIcon } from '../model/message';
 
 // import { ActivatedRoute } from '@angular/router';
 // import { ChatService } from 'src/app/services/chat.service';
@@ -24,60 +36,81 @@ import { WhatsappHeaderComponent } from '../header/header.component';
 	styleUrls: ['./chat.component.scss'],
 	imports: [
 		BypassHtmlSanitizerPipe,
-		CommonModule,
 		NgFor,
 		WhatsappHeaderComponent,
+		WhatsappMessageComponent,
 	],
-	providers: [UiUtilService],
 })
 export class WhatsappChatComponent implements OnInit {
-	constructor(
-		private uiUtil: UiUtilService,
-		private cd: ChangeDetectorRef,
-	) {}
+	uiUtil = inject(UiUtilService);
+	cd = inject(ChangeDetectorRef);
+
+	@ViewChild('messages') messagesRef?: ElementRef<HTMLDivElement>;
+
 	tailOutIcon = '';
 	sendIcon = '';
 	menuIcon = '';
 
-	messages = [
-		{ text: 'Hey, how are you?', time: '10:12 AM' },
-		{ text: "I'm fine, how about you?", time: '10:12 AM', received: true },
-		{ text: "I'm fine too, thanks", time: '10:12 AM' },
-		{ text: "How's your day going?", time: '10:12 AM' },
-		{ text: "It's going great!", time: '10:12 AM', received: true },
-		{ text: 'What about you?', time: '10:12 AM', received: true },
-		{ text: "It's going great!", time: '10:12 AM' },
-		{ text: 'What about you?', time: '10:12 AM' },
-		{ text: "It's going great!", time: '10:12 AM', received: true },
-		{ text: 'What about you?', time: '10:12 AM', received: true },
-		{ text: "It's going great!", time: '10:12 AM' },
-		{ text: 'What about you?', time: '10:12 AM' },
-		{ text: "It's going great!", time: '10:12 AM', received: true },
-		{ text: 'What about you?', time: '10:12 AM', received: true },
-		{ text: 'Hey, how are you?', time: '10:12 AM' },
-		{ text: "I'm fine, how about you?", time: '10:12 AM', received: true },
-		{ text: "I'm fine too, thanks", time: '10:12 AM' },
-		{ text: "How's your day going?", time: '10:12 AM' },
-		{ text: "It's going great!", time: '10:12 AM', received: true },
-		{ text: 'What about you?', time: '10:12 AM', received: true },
-		{ text: "It's going great!", time: '10:12 AM' },
-		{ text: 'What about you?', time: '10:12 AM' },
-		{ text: "It's going great!", time: '10:12 AM', received: true },
-		{ text: 'What about you?', time: '10:12 AM', received: true },
-		{ text: "It's going great!", time: '10:12 AM' },
-		{ text: 'What about you?', time: '10:12 AM' },
-		{ text: "It's going great!", time: '10:12 AM', received: true },
-		{ text: 'What about you?', time: '10:12 AM', received: true },
-	];
+	msgIcons = {} as {
+		// eslint-disable-next-line no-unused-vars
+		[key in MessageStatusIcon]: string;
+	};
+
+	@Input() chat?: Chat;
+
+	constructor() {
+		afterRender(() => this.scrollToBottom());
+	}
 
 	ngOnInit(): void {
+		this.loadIcons();
+	}
+
+	loadIcons(): void {
 		this.uiUtil
-			.importIcons('tail-out', 'send', 'menu')
-			.subscribe(([tailOut, send, menu]) => {
+			.importIcons(
+				'tail-out',
+				'send',
+				'menu',
+				'pending',
+				'check',
+				'double-check',
+			)
+			.subscribe(([tailOut, send, menu, pending, check, doubleCheck]) => {
 				this.tailOutIcon = tailOut;
 				this.sendIcon = send;
 				this.menuIcon = menu;
+
+				this.msgIcons = {
+					'': '',
+					pending,
+					check,
+					'double-check': doubleCheck,
+				};
+
 				this.cd.detectChanges();
 			});
+	}
+
+	msgTrackByFn(_: number, msg: Message): string {
+		return msg.id;
+	}
+
+	scrollToBottom(): void {
+		setTimeout(() => {
+			// const el = document.querySelector('app-whatsapp-chat .messages');
+			const el = this.messagesRef?.nativeElement;
+			el?.scrollTo({
+				behavior: 'smooth',
+				top: el.scrollHeight,
+			});
+
+			console.log(
+				'scrollToBottom',
+				el?.scrollHeight,
+				el?.scrollTop,
+				el?.clientHeight,
+			);
+		}, 30);
 	}
 }

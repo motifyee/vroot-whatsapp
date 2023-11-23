@@ -2,22 +2,20 @@
   "name": "v-root",
   "version": "0.0.0",
   "scripts": {
+    "4000": "ng serve --hmr --host 10.99.77.246 --port 4000 --open",
+    "4001": "ng serve --hmr --host 10.99.77.246 --port 4001 --open",
+    "4002": "ng serve --hmr --host 10.99.77.246 --port 4002 --open",
     "ng": "ng",
     "e2e": "ng e2e",
     "start": "ng serve",
     "build": "ng build",
     "build:prod": "ng build --prod",
-    
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
-		"pretty": "prettier --write \"./**/*.{js,jsx,ts,tsx,json,html}\"",
-    "lint:check": "eslint --ext .js,.ts,.html .",
-    
-		"4000": "ng serve --hmr --host 10.99.77.246 --port 4000 --open",
-		"4001": "ng serve --hmr --host 10.99.77.246 --port 4001 --open",
-		"4002": "ng serve --hmr --host 10.99.77.246 --port 4002 --open"
+    "pretty": "prettier --write \"./**/*.{js,jsx,ts,tsx,json,html}\"",
+    "lint:check": "eslint --ext .js,.ts,.html ."
   },
   "private": true,
   "dependencies": {
@@ -29,6 +27,7 @@
     "@angular/platform-browser": "^16.2.0",
     "@angular/platform-browser-dynamic": "^16.2.0",
     "@angular/router": "^16.2.0",
+    "primeng": "^16.8.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"

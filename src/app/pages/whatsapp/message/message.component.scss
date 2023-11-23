@@ -1,0 +1,63 @@
+.message {
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+
+	.message__content {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+
+		background-color: var(--friend-color);
+		padding: 10px 20px;
+		border-radius: 0 7.5px 7.5px 7.5px;
+		border: 0px solid rgb(233, 237, 239);
+		color: #fff;
+
+		font-family: 'Segoe UI', 'Helvetica Neue', Helvetica, 'Lucida Grande',
+			Arial, Ubuntu, Cantarell, 'Fira Sans', sans-serif;
+		font-weight: 400;
+		font-size: 14.2px;
+
+		.tail-out {
+			position: absolute;
+			top: 0;
+			left: -8px;
+			transform: rotateY(180deg);
+			color: var(--friend-color);
+		}
+	}
+}
+.message__delivery {
+	padding-block-start: 5px;
+	.message__delivery--content {
+		display: flex;
+		line-height: 15px;
+		gap: 5px;
+		align-items: center;
+		float: inline-end;
+	}
+
+	.message__time {
+		place-self: flex-end;
+		color: #999;
+		font-size: 11px;
+	}
+}
+
+.message--right {
+	justify-content: flex-end;
+
+	.message__content {
+		background-color: #dcf8c6;
+		border-radius: 7.5px 0 7.5px 7.5px;
+		background-color: var(--user-color);
+
+		.tail-out {
+			left: unset;
+			right: -8px;
+			transform: rotateY(0deg);
+			color: var(--user-color);
+		}
+	}
+}

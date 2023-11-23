@@ -1,0 +1,14 @@
+<button>
+	<div class="avatar">
+		<img src="assets/images/user-1.jpg" alt="user" />
+	</div>
+</button>
+
+<button
+	class="icon"
+	[class.active]="idx === selectedIndex"
+	*ngFor="let icon of icons; index as idx"
+	(click)="selectedIndex = idx"
+	[routerLink]="['/whatsapp', routes[idx]]">
+	<div [innerHTML]="icon | bypassHtmlSanitizer"></div>
+</button>

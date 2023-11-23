@@ -1,0 +1,53 @@
+<div class="title">
+	<div class="header">Contacts</div>
+	<div class="search">
+		<input type="text" placeholder="Search" />
+		<div class="icon" [innerHTML]="searchIcon | bypassHtmlSanitizer"></div>
+	</div>
+</div>
+<p-accordion [multiple]="true" [activeIndex]="[0]">
+	<p-accordionTab class="tab" header="Team A">
+		<div
+			class="contact"
+			[routerLink]="['/whatsapp', { outlets: { display: ['contact'] } }]">
+			<div class="avatar">
+				<img src="assets/images/user-1.jpg" alt="Avery" />
+			</div>
+			<div class="info">
+				<div class="name">Avery Walker</div>
+				<div class="status">Active</div>
+			</div>
+		</div>
+		<div
+			class="contact active"
+			[routerLink]="['/whatsapp', { outlets: { display: ['chat'] } }]">
+			<div class="avatar">
+				<img src="assets/images/user-1.jpg" alt="Avery" />
+			</div>
+			<div class="info">
+				<div class="name">Avery Walker</div>
+				<div class="status">Active</div>
+			</div>
+		</div>
+	</p-accordionTab>
+	<p-accordionTab class="tab" header="Team B">
+		<div class="contact row">
+			<div class="avatar">
+				<img src="assets/images/user-1.jpg" alt="Avery" />
+			</div>
+			<div class="info">
+				<div class="name">Avery Walker</div>
+				<div class="status">Active</div>
+			</div>
+		</div>
+		<div class="contact row .ctive">
+			<div class="avatar">
+				<img src="assets/images/user-1.jpg" alt="Avery" />
+			</div>
+			<div class="info">
+				<div class="name">Avery Walker</div>
+				<div class="status">Active</div>
+			</div>
+		</div>
+	</p-accordionTab>
+</p-accordion>

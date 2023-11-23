@@ -1,0 +1,86 @@
+:host {
+	width: 80px;
+
+	display: flex;
+	flex-direction: column;
+
+	color: rgb(89, 191, 231);
+	--fl: green;
+}
+
+.avatar {
+	margin-block-start: 60px;
+	margin-block-end: 30px;
+
+	width: 55px;
+	height: 55px;
+	border-radius: 50%;
+	// background-color: ;
+	border: 2px solid rgb(36, 222, 36);
+	padding: 1px;
+
+	&:hover {
+		background-color: #ccc;
+	}
+
+	&:active {
+		background-color: #aaa;
+	}
+
+	&:focus {
+		background-color: #ccc;
+	}
+
+	&:disabled {
+		background-color: #ccc;
+		cursor: not-allowed;
+	}
+
+	&.active {
+		background-color: #ccc;
+	}
+	img {
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+	}
+}
+
+button {
+	background-color: transparent;
+	border: none;
+	outline: none;
+	cursor: pointer;
+
+	display: flex;
+	justify-content: center;
+	color: #aaa;
+}
+
+button.icon {
+	padding: 30px;
+	// border: 1px solid #ccc;
+	display: flex;
+	justify-content: center;
+}
+
+button.icon:hover {
+	background-color: #ccc;
+	--fill: rgba(120, 120, 233, 0.3);
+	--stroke: rgba(101, 101, 206, 0.3);
+}
+button.icon.active {
+	background-color: #aaa;
+	--fill: rgb(120, 120, 233);
+	--stroke: rgb(101, 101, 206);
+}
+
+button.icon:disabled {
+	background-color: #ccc;
+	cursor: not-allowed;
+}
+
+// chats
+// contacts
+// rooms
+// meetings

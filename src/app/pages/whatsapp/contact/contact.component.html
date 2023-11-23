@@ -1,0 +1,40 @@
+<!-- contact info page -->
+
+<header>
+	<div class="avatar">
+		<img src="assets/images/user-1.jpg" alt="user" />
+	</div>
+	<div class="name">Catherine Sinu</div>
+	<div class="description">Engineer Software Engineering</div>
+	<div class="status">active</div>
+
+	<div class="actions">
+		<a class="action" [innerHTML]="messageIcon | bypassHtmlSanitizer"></a>
+		<a class="action" [innerHTML]="callIcon | bypassHtmlSanitizer"></a>
+		<a class="action" [innerHTML]="calendarIcon | bypassHtmlSanitizer"></a>
+	</div>
+</header>
+
+<section>
+	<p>phone</p>
+
+	<div class="info">
+		<div class="icon" [innerHTML]="callIcon | bypassHtmlSanitizer"></div>
+		<div class="data">
+			<div class="value">+91 9876543210</div>
+			<div class="label">Work</div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<p>INFORMATION</p>
+
+	<div class="info">
+		<div class="icon">email</div>
+		<div class="data">
+			<div class="value">catherinesinu&#64;cisco.com</div>
+			<div class="label">Work</div>
+		</div>
+	</div>
+</section>

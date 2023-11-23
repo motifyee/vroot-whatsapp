@@ -1,0 +1,1306 @@
+{
+	"info": {
+		"_postman_id": "8b418885-bd27-4d32-b05b-4c6b65c60dd8",
+		"name": "WhatsApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ReceiveMessages",
+			"item": [
+				{
+					"name": "ReceivedTextMessages",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{
+    \"contacts\":[{
+                    \"profile\":{\"name\":\"Mohamed Abdo\"},
+                    \"wa_id\":\"201099980333\"
+                    }],
+            \"messages\":[{
+                    \"from\":\"201099980333\",
+                    \"id\":\"ABEGIBCZmAMzAgo6zln6MSxH8rEE\",
+                    \"text\":{\"body\":\"R\"},
+                    \"timestamp\":\"1648727366\",
+                    \"type\":\"text\"
+                    }]
+}",
+						},
+						"url": {
+							"raw": "https://41.38.209.197:5001/api/webhook/ReceiveMessages/ytrd/gjgjgg",
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ReceiveMessagesWithImage",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{
+  \"contacts\": [
+    {
+      \"profile\": {
+        \"name\": \"Amira Roshdy\"
+      },
+      \"wa_id\": \"201067813027\"
+    }
+  ],
+  \"messages\": [
+    {
+      \"from\": \"201067813027\",
+      \"id\": \"ABEGIBBngTAnAhCtjTOu7rPsHrW-RMoXBNRM\",
+      \"image\": {
+        \"caption\": \"تفسير سورة الانفال\",
+        \"id\": \"6306a11f-da6d-4a5c-a6fc-127af1bf57ad\",
+        \"file\": \"/usr/local/wamedia/shared/fc233119-733f-49c-bcbd-b2f68f798e33\",
+        \"mime_type\": \"image/jpeg\",
+        \"sha256\": \"db394609ff9ac7462605c6f082e2afe5894132a0ea9adde72b6f8d8202560881\"
+      },
+      \"timestamp\": \"1676731998\",
+      \"type\": \"image\"
+    }
+  ]
+}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://41.38.209.197:5001/api/webhook/ReceiveMessages/ytrd/gjgjgg",
+							"protocol": "https",
+							"host": [
+								"41",
+								"38",
+								"209",
+								"197"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"webhook",
+								"ReceiveMessages",
+								"ytrd",
+								"gjgjgg"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ReceiveMessagesWithDocument",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"contacts\": [\r\n    {\r\n      \"profile\": {\r\n        \"name\": \"Amira Roshdy\"\r\n      },\r\n      \"wa_id\": \"201067813027\"\r\n    }\r\n  ],\r\n  \"messages\": [\r\n    {\r\n      \"document\": {\r\n        \"caption\": \"0-Activity-1.docx\",\r\n        \"filename\": \"0-Activity-1.docx\",\r\n        \"file\": \"/usr/local/wamedia/shared/fc233119-733f-49c-bcbd-b2f68f798e33\",\r\n        \"id\": \"0845e649-473c-48b2-9d4d-79d6fde76930\",\r\n        \"mime_type\": \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\",\r\n        \"sha256\": \"f811b7e6551fb7cd137c5713473ecab1d40265258ae258da570cfe675d8681e3\"\r\n      },\r\n      \"from\": \"201067813027\",\r\n      \"id\": \"ABEGIBBngTAnAhBGgzVURKWv13Z0cbaORLJo\",\r\n      \"timestamp\": \"1676974672\",\r\n      \"type\": \"document\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://41.38.209.197:5001/api/webhook/ReceiveMessages/ytrd/gjgjgg",
+							"protocol": "https",
+							"host": [
+								"41",
+								"38",
+								"209",
+								"197"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"webhook",
+								"ReceiveMessages",
+								"ytrd",
+								"gjgjgg"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Received Business Opted In Security Notifications",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"contacts\": [\r\n        {\r\n            \"profile\": {\r\n                \"name\": \"Kerry Fisher\"\r\n            },\r\n            \"wa_id\": \"16315551234\"\r\n        }\r\n    ],\r\n    \"messages\": [\r\n        {\r\n            \"from\": \"16315553601\",\r\n            \"id\": \"ABGGFjFVU2AfAgo6V-Hc5eCgK5Gh\",\r\n            \"identity\": {\r\n                \"acknowledged\": true,\r\n                \"created_timestamp\": 1602532300000,\r\n                \"hash\": \"Sjvjlx8G6Z0=\"\r\n            },\r\n            \"text\": {\r\n                \"body\": \"Hi from new number 3601\"\r\n            },\r\n            \"timestamp\": \"1602532300\",\r\n            \"type\": \"text\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://41.38.209.197:5001/api/webhook/ReceiveMessages/ytrd/gjgjgg",
+							"protocol": "https",
+							"host": [
+								"41",
+								"38",
+								"209",
+								"197"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"webhook",
+								"ReceiveMessages",
+								"ytrd",
+								"gjgjgg"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Received Message with Voice Message",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"contacts\": [\r\n    {\r\n      \"profile\": {\r\n        \"name\": \"Amira Roshdy\"\r\n      },\r\n      \"wa_id\": \"201067813027\"\r\n    }\r\n  ],\r\n  \"messages\": [\r\n    {\r\n      \"from\": \"201067813027\",\r\n      \"id\": \"ABEGIBBngTAnAhBtlfRtOEI70Mwujbk_PSBf\",\r\n      \"timestamp\": \"1676980340\",\r\n      \"type\": \"voice\",\r\n      \"voice\": {\r\n        \"file\": \"/usr/local/wamedia/shared/463e/b7ec/ff4e4d9bb1101879cbd411b2\",\r\n        \"id\": \"cd858383-0e92-4f7c-a566-0dd3321949bd\",\r\n        \"mime_type\": \"audio/ogg; codecs=opus\",\r\n        \"sha256\": \"24a4182b3013279cd03b93b1d858d1e56b33c453e7cf2b72b49e736b80ad699b\"\r\n      }\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://41.38.209.197:5001/api/webhook/ReceiveMessages/ytrd/gjgjgg",
+							"protocol": "https",
+							"host": [
+								"41",
+								"38",
+								"209",
+								"197"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"webhook",
+								"ReceiveMessages",
+								"ytrd",
+								"gjgjgg"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Received Static Location Message",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"contacts\": [ {\r\n    \"profile\": {\r\n        \"name\": \"Kerry Fisher\"\r\n    },\r\n    \"wa_id\": \"16315551234\"\r\n  } ],\r\n \"messages\":[{\r\n   \"from\":\"16315551234\",\r\n   \"id\":\"ABGGFlA5FpafAgo6tHcNmNjXmuSf\",\r\n   \"location\":{\r\n      \"address\":\"Main Street Beach, Santa Cruz, CA\",\r\n      \"latitude\":38.9806263495,\r\n      \"longitude\":-131.9428612257,\r\n      \"name\":\"Main Street Beach\",\r\n      \"url\":\"https://foursquare.com/v/4d7031d35b5df7744\"},\r\n   \"timestamp\":\"1521497875\",\r\n   \"type\":\"location\"\r\n  }]\r\n} ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://41.38.209.197:5001/api/webhook/ReceiveMessages/ytrd/gjgjgg",
+							"protocol": "https",
+							"host": [
+								"41",
+								"38",
+								"209",
+								"197"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"webhook",
+								"ReceiveMessages",
+								"ytrd",
+								"gjgjgg"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Received Contact Message",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"contacts\": [\r\n        {\r\n            \"profile\": {\r\n                \"name\": \"Kerry Fisher\"\r\n            },\r\n            \"wa_id\": \"16315551234\"\r\n        }\r\n    ],\r\n    \"messages\": [\r\n        {\r\n            \"contacts\": [\r\n                {\r\n                    \"addresses\": [\r\n                        {\r\n                            \"city\": \"Menlo Park\",\r\n                            \"country\": \"United States\",\r\n                            \"country_code\": \"us\",\r\n                            \"state\": \"CA\",\r\n                            \"street\": \"1 Hacker Way\",\r\n                            \"type\": \"WORK\",\r\n                            \"zip\": \"94025\"\r\n                        }\r\n                    ],\r\n                    \"birthday\": \"2012-08-18\",\r\n                    \"emails\": [\r\n                        {\r\n                            \"email\": \"kfish@fb.com\",\r\n                            \"type\": \"WORK\"\r\n                        }\r\n                    ],\r\n                    \"ims\": [\r\n                        {\r\n                            \"service\": \"AIM\",\r\n                            \"user_id\": \"kfish\"\r\n                        }\r\n                    ],\r\n                    \"name\": {\r\n                        \"first_name\": \"Kerry\",\r\n                        \"formatted_name\": \"Kerry Fisher\",\r\n                        \"last_name\": \"Fisher\"\r\n                    },\r\n                    \"org\": {\r\n                        \"company\": \"Facebook\"\r\n                    },\r\n                    \"phones\": [\r\n                        {\r\n                            \"phone\": \"+1 (940) 555-1234\",\r\n                            \"type\": \"CELL\"\r\n                        },\r\n                        {\r\n                            \"phone\": \"+1 (650) 555-1234\",\r\n                            \"type\": \"WORK\",\r\n                            \"wa_id\": \"16505551234\"\r\n                        }\r\n                    ],\r\n                    \"urls\": [\r\n                        {\r\n                            \"url\": \"https://www.facebook.com\",\r\n                            \"type\": \"WORK\"\r\n                        }\r\n                    ]\r\n                }\r\n            ],\r\n            \"from\": \"16505551234\",\r\n            \"id\": \"ABGGFlA4dSRvAgo6C4Z53hMh1ugR\",\r\n            \"timestamp\": \"1537248012\",\r\n            \"type\": \"contacts\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://41.38.209.197:5001/api/webhook/ReceiveMessages/ytrd/gjgjgg",
+							"protocol": "https",
+							"host": [
+								"41",
+								"38",
+								"209",
+								"197"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"webhook",
+								"ReceiveMessages",
+								"ytrd",
+								"gjgjgg"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetWhatsappReceiveChatDetailsByCompany",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://41.38.209.197:5001/api/webhook/GetWhatsappReceiveChatByCompany/1",
+							"protocol": "https",
+							"host": [
+								"41",
+								"38",
+								"209",
+								"197"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"webhook",
+								"GetWhatsappReceiveChatByCompany",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		{
+			"name": "WhatsAppServerData",
+			"item": [
+				{
+					"name": "GetAllWhatsAppServerData",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://10.99.77.247:5001/api/WhatsAppServerData/GetAllWhatsAppServerData",
+							"protocol": "https",
+							"host": [
+								"10",
+								"99",
+								"77",
+								"247"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"WhatsAppServerData",
+								"GetAllWhatsAppServerData"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetWhatsAppServerDataByCompanyId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://10.99.77.247:5001/api/WhatsAppServerData/GetWhatsAppServerDataByCompanyId/1",
+							"protocol": "https",
+							"host": [
+								"10",
+								"99",
+								"77",
+								"247"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"WhatsAppServerData",
+								"GetWhatsAppServerDataByCompanyId",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetWhatsAppServerDataDropDownListByCompanyId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://10.99.77.247:5001/api/WhatsAppServerData/GetWhatsAppServerDataDropDownListByCompanyId/1",
+							"protocol": "https",
+							"host": [
+								"10",
+								"99",
+								"77",
+								"247"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"WhatsAppServerData",
+								"GetWhatsAppServerDataDropDownListByCompanyId",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetWhatsAppServerDataById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://10.99.77.247:5001/api/WhatsAppServerData/GetWhatsAppServerDataById/3",
+							"protocol": "https",
+							"host": [
+								"10",
+								"99",
+								"77",
+								"247"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"WhatsAppServerData",
+								"GetWhatsAppServerDataById",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateAdminToken",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://10.99.77.247:5001/api/WhatsAppServerData/UpdateAdminToken/1",
+							"protocol": "https",
+							"host": [
+								"10",
+								"99",
+								"77",
+								"247"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"WhatsAppServerData",
+								"UpdateAdminToken",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddWhatsAppServerData",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"URL_API\":\"https://waba.360dialog.io\",\r\n    \"Namespace\":\"55c5362b_edb7_47a2_82ad_a0420f9c03f7\",\r\n    \"WhatsAppNumber\":\"201050501501\",\r\n    \"AdminUsername\":\"admin\",\r\n    \"AdminPassword\":\"lA2@8nC6jN!gV*aP\",\r\n    \"CompanyId\":1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://10.99.77.247:5001/api/WhatsAppServerData/AddWhatsAppServerData",
+							"protocol": "https",
+							"host": [
+								"10",
+								"99",
+								"77",
+								"247"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"WhatsAppServerData",
+								"AddWhatsAppServerData"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://10.99.77.247:5001/api/WhatsAppUsers/CreateUser/ytrd7010/1",
+							"protocol": "https",
+							"host": [
+								"10",
+								"99",
+								"77",
+								"247"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"WhatsAppUsers",
+								"CreateUser",
+								"ytrd7010",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SendMessages",
+			"item": [
+				{
+					"name": "SendTemplate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://10.99.77.247:5001/api/WhatsAppUsers/SendTemplate?CompanyId=1&BuddiesId=1",
+							"protocol": "https",
+							"host": [
+								"10",
+								"99",
+								"77",
+								"247"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"WhatsAppUsers",
+								"SendTemplate"
+							],
+							"query": [
+								{
+									"key": "CompanyId",
+									"value": "1"
+								},
+								{
+									"key": "BuddiesId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetWhatsAppChatByBranch",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://10.99.77.247:5001/api/WhatsAppUsers/GetWhatsAppChatByBranch/1",
+							"protocol": "https",
+							"host": [
+								"10",
+								"99",
+								"77",
+								"247"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"WhatsAppUsers",
+								"GetWhatsAppChatByBranch",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SendImageMessageWhatsappByURL",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"BranchId\":1,\r\n    \"BuddiesId\":1,\r\n    \"EmployeeId\":1,\r\n    \"imagePath\": \"develop.jpg\",\r\n    \"caption\": \"cat\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://10.99.77.247:5001/api/WhatsAppUsers/SendImageMessageWhatsappByID",
+							"protocol": "https",
+							"host": [
+								"10",
+								"99",
+								"77",
+								"247"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"WhatsAppUsers",
+								"SendImageMessageWhatsappByID"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SendLocationMessageWhatsapp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://10.99.77.247:5001/api/WhatsAppUsers/SendLocationMessageWhatsapp?BranchId=1&BuddiesId=1&EmployeeId=1&LanguageCode=ar&LanguagePolicy=deterministic&ComponentsType=body&LocalizableParamsDefault=1234&TemplateName=hello&longitude=66.101&latitude=66.101&LocationName=دمياط&LocationAddress=كفر المنازله بجوار مدرسة لمنار",
+							"protocol": "https",
+							"host": [
+								"10",
+								"99",
+								"77",
+								"247"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"WhatsAppUsers",
+								"SendLocationMessageWhatsapp"
+							],
+							"query": [
+								{
+									"key": "BranchId",
+									"value": "1"
+								},
+								{
+									"key": "BuddiesId",
+									"value": "1"
+								},
+								{
+									"key": "EmployeeId",
+									"value": "1"
+								},
+								{
+									"key": "LanguageCode",
+									"value": "ar"
+								},
+								{
+									"key": "LanguagePolicy",
+									"value": "deterministic"
+								},
+								{
+									"key": "ComponentsType",
+									"value": "body"
+								},
+								{
+									"key": "LocalizableParamsDefault",
+									"value": "1234"
+								},
+								{
+									"key": "TemplateName",
+									"value": "hello"
+								},
+								{
+									"key": "longitude",
+									"value": "66.101"
+								},
+								{
+									"key": "latitude",
+									"value": "66.101"
+								},
+								{
+									"key": "LocationName",
+									"value": "دمياط"
+								},
+								{
+									"key": "LocationAddress",
+									"value": "كفر المنازله بجوار مدرسة لمنار"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SendTextMessageWhatsapp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://10.99.77.247:5001/api/WhatsAppUsers/SendTextMessageWhatsapp?BranchId=1&BuddiesId=1&EmployeeId=1&Message=اهلا",
+							"protocol": "https",
+							"host": [
+								"10",
+								"99",
+								"77",
+								"247"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"WhatsAppUsers",
+								"SendTextMessageWhatsapp"
+							],
+							"query": [
+								{
+									"key": "BranchId",
+									"value": "1"
+								},
+								{
+									"key": "BuddiesId",
+									"value": "1"
+								},
+								{
+									"key": "EmployeeId",
+									"value": "1"
+								},
+								{
+									"key": "Message",
+									"value": "اهلا"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SendTextURLMessageWhatsapp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://10.99.77.247:5001/api/WhatsAppUsers/SendTextURLMessageWhatsapp?BranchId=1&BuddiesId=1&EmployeeId=1&URLMessage=https://www.google.com/",
+							"protocol": "https",
+							"host": [
+								"10",
+								"99",
+								"77",
+								"247"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"WhatsAppUsers",
+								"SendTextURLMessageWhatsapp"
+							],
+							"query": [
+								{
+									"key": "BranchId",
+									"value": "1"
+								},
+								{
+									"key": "BuddiesId",
+									"value": "1"
+								},
+								{
+									"key": "EmployeeId",
+									"value": "1"
+								},
+								{
+									"key": "URLMessage",
+									"value": "https://www.google.com/"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SendImageMessageWhatsappByID",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"BranchId\":1,\r\n    \"BuddiesId\":1,\r\n    \"EmployeeId\":1,\r\n    \"imagePath\": \"Cat.mp3\",\r\n    \"caption\": \"develop\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://10.99.77.247:5001/api/WhatsAppUsers/SendImageMessageWhatsappByID",
+							"protocol": "https",
+							"host": [
+								"10",
+								"99",
+								"77",
+								"247"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"WhatsAppUsers",
+								"SendImageMessageWhatsappByID"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SendAudioMessageWhatsappByID",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://10.99.77.247:5001/api/WhatsAppUsers/SendAudioMessageWhatsappByID?BranchId=1&BuddiesId=1&EmployeeId=1&audioPath=Cat.mp3",
+							"protocol": "https",
+							"host": [
+								"10",
+								"99",
+								"77",
+								"247"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"WhatsAppUsers",
+								"SendAudioMessageWhatsappByID"
+							],
+							"query": [
+								{
+									"key": "BranchId",
+									"value": "1"
+								},
+								{
+									"key": "BuddiesId",
+									"value": "1"
+								},
+								{
+									"key": "EmployeeId",
+									"value": "1"
+								},
+								{
+									"key": "audioPath",
+									"value": "Cat.mp3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SendVideoMessageWhatsappByID",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://10.99.77.247:5001/api/WhatsAppUsers/SendVideoMessageWhatsappByID?BranchId=1&BuddiesId=1&EmployeeId=1&videoPath=video.mp4&caption=video",
+							"protocol": "https",
+							"host": [
+								"10",
+								"99",
+								"77",
+								"247"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"WhatsAppUsers",
+								"SendVideoMessageWhatsappByID"
+							],
+							"query": [
+								{
+									"key": "BranchId",
+									"value": "1"
+								},
+								{
+									"key": "BuddiesId",
+									"value": "1"
+								},
+								{
+									"key": "EmployeeId",
+									"value": "1"
+								},
+								{
+									"key": "videoPath",
+									"value": "video.mp4"
+								},
+								{
+									"key": "caption",
+									"value": "video"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SendDocMessageWhatsappByID",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://10.99.77.247:5001/api/WhatsAppUsers/SendDocMessageWhatsappByID?BranchId=1&BuddiesId=1&EmployeeId=1&docPath=file.docx&caption=document&filename=file",
+							"protocol": "https",
+							"host": [
+								"10",
+								"99",
+								"77",
+								"247"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"WhatsAppUsers",
+								"SendDocMessageWhatsappByID"
+							],
+							"query": [
+								{
+									"key": "BranchId",
+									"value": "1"
+								},
+								{
+									"key": "BuddiesId",
+									"value": "1"
+								},
+								{
+									"key": "EmployeeId",
+									"value": "1"
+								},
+								{
+									"key": "docPath",
+									"value": "file.docx"
+								},
+								{
+									"key": "caption",
+									"value": "document"
+								},
+								{
+									"key": "filename",
+									"value": "file"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SendImageMessageWhatsappByURL",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"BranchId\":1,\r\n    \"BuddiesId\":1,\r\n    \"EmployeeId\":1,\r\n    \"imagePath\": \"https://static.dw.com/image/19145849_303.jpg\",\r\n    \"caption\": \"cat\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://10.99.77.247:5001/api/WhatsAppUsers/SendImageMessageWhatsappByURL",
+							"protocol": "https",
+							"host": [
+								"10",
+								"99",
+								"77",
+								"247"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"WhatsAppUsers",
+								"SendImageMessageWhatsappByURL"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SendAudioMessageWhatsappByURL",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://10.99.77.247:5001/api/WhatsAppUsers/SendAudioMessageWhatsappByURL?BranchId=1&BuddiesId=1&EmployeeId=1&Link=..&ProviderName=..",
+							"protocol": "https",
+							"host": [
+								"10",
+								"99",
+								"77",
+								"247"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"WhatsAppUsers",
+								"SendAudioMessageWhatsappByURL"
+							],
+							"query": [
+								{
+									"key": "BranchId",
+									"value": "1"
+								},
+								{
+									"key": "BuddiesId",
+									"value": "1"
+								},
+								{
+									"key": "EmployeeId",
+									"value": "1"
+								},
+								{
+									"key": "Link",
+									"value": ".."
+								},
+								{
+									"key": "ProviderName",
+									"value": ".."
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SendVideoMessageWhatsappByURL",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://10.99.77.247:5001/api/WhatsAppUsers/SendVideoMessageWhatsappByURL?BranchId=1&BuddiesId=1&EmployeeId=1&Link=..&caption=video&ProviderName=..",
+							"protocol": "https",
+							"host": [
+								"10",
+								"99",
+								"77",
+								"247"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"WhatsAppUsers",
+								"SendVideoMessageWhatsappByURL"
+							],
+							"query": [
+								{
+									"key": "BranchId",
+									"value": "1"
+								},
+								{
+									"key": "BuddiesId",
+									"value": "1"
+								},
+								{
+									"key": "EmployeeId",
+									"value": "1"
+								},
+								{
+									"key": "Link",
+									"value": ".."
+								},
+								{
+									"key": "caption",
+									"value": "video"
+								},
+								{
+									"key": "ProviderName",
+									"value": ".."
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SendDocMessageWhatsappByURL",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://10.99.77.247:5001/api/WhatsAppUsers/SendDocMessageWhatsappByURL?BranchId=1&BuddiesId=1&EmployeeId=1&Link=..&caption=document&ProviderName=..&filename=..",
+							"protocol": "https",
+							"host": [
+								"10",
+								"99",
+								"77",
+								"247"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"WhatsAppUsers",
+								"SendDocMessageWhatsappByURL"
+							],
+							"query": [
+								{
+									"key": "BranchId",
+									"value": "1"
+								},
+								{
+									"key": "BuddiesId",
+									"value": "1"
+								},
+								{
+									"key": "EmployeeId",
+									"value": "1"
+								},
+								{
+									"key": "Link",
+									"value": ".."
+								},
+								{
+									"key": "caption",
+									"value": "document"
+								},
+								{
+									"key": "ProviderName",
+									"value": ".."
+								},
+								{
+									"key": "filename",
+									"value": ".."
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SendStickerMessageWhatsappByID",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://10.99.77.247:5001/api/WhatsAppUsers/SendStickerMessageWhatsappByID?BranchId=1&BuddiesId=1&EmployeeId=1&stickerPath=..",
+							"protocol": "https",
+							"host": [
+								"10",
+								"99",
+								"77",
+								"247"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"WhatsAppUsers",
+								"SendStickerMessageWhatsappByID"
+							],
+							"query": [
+								{
+									"key": "BranchId",
+									"value": "1"
+								},
+								{
+									"key": "BuddiesId",
+									"value": "1"
+								},
+								{
+									"key": "EmployeeId",
+									"value": "1"
+								},
+								{
+									"key": "stickerPath",
+									"value": ".."
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SendStickerMessageWhatsappByURL",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://10.99.77.247:5001/api/WhatsAppUsers/SendStickerMessageWhatsappByURL?BranchId=1&BuddiesId=1&EmployeeId=1&Link=..&ProviderName=..",
+							"protocol": "https",
+							"host": [
+								"10",
+								"99",
+								"77",
+								"247"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"WhatsAppUsers",
+								"SendStickerMessageWhatsappByURL"
+							],
+							"query": [
+								{
+									"key": "BranchId",
+									"value": "1"
+								},
+								{
+									"key": "BuddiesId",
+									"value": "1"
+								},
+								{
+									"key": "EmployeeId",
+									"value": "1"
+								},
+								{
+									"key": "Link",
+									"value": ".."
+								},
+								{
+									"key": "ProviderName",
+									"value": ".."
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SendContactMessageWhatsapp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"addresses\": [\r\n        {\r\n            \"city\": \"\",\r\n            \"country\": \"\",\r\n            \"country_code\": \"\",\r\n            \"state\": \"\",\r\n            \"street\": \"\",\r\n            \"type\": \"\",\r\n            \"zip\": \"\"\r\n        }\r\n    ],\r\n    \"birthday\": \"\",\r\n    \"emails\": [\r\n        {\r\n            \"email\": \"<info@vRooT.com>\",\r\n            \"type\": \"\"\r\n        }\r\n    ],\r\n    \"ims\": [],\r\n    \"name\": {\r\n        \"first_name\": \"\",\r\n        \"formatted_name\": \"<asmaa ali>\",\r\n        \"last_name\": \"\"\r\n    },\r\n    \"org\": {\r\n        \"company\": \"\"\r\n    },\r\n    \"phones\": [\r\n        {\r\n            \"phone\": \"<01067813028>\",\r\n            \"type\": \"\"\r\n        }\r\n    ],\r\n    \"urls\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://10.99.77.247:5001/api/WhatsAppUsers/SendContactMessageWhatsapp?BranchId=1&BuddiesId=1&EmployeeId=1",
+							"protocol": "https",
+							"host": [
+								"10",
+								"99",
+								"77",
+								"247"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"WhatsAppUsers",
+								"SendContactMessageWhatsapp"
+							],
+							"query": [
+								{
+									"key": "BranchId",
+									"value": "1"
+								},
+								{
+									"key": "BuddiesId",
+									"value": "1"
+								},
+								{
+									"key": "EmployeeId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SendListMessageWhatsapp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"HeaderText\":\"\",\r\n    \"BodyText\":\"\",\r\n    \"FooterText\":\"\",\r\n    \"sections\": [\r\n                {\r\n                    \"title\": \"<List Category Item>\",\r\n                    \"rows\": [\r\n                        {\r\n                            \"id\": \"<Item ID>\",\r\n                            \"title\": \"<Item Title>\",\r\n                            \"description\": \"<Item Description>\"\r\n                        },\r\n                        {\r\n                            \"id\": \"<Item ID>\",\r\n                            \"title\": \"<Item Title>\",\r\n                            \"description\": \"<Item Description>\"\r\n                        }\r\n                    ]\r\n                },\r\n                {\r\n                    \"title\": \"<List Item>\",\r\n                    \"rows\": [\r\n                        {\r\n                            \"id\": \"<Item ID>\",\r\n                            \"title\": \"<Item Title>\",\r\n                            \"description\": \"<Item Description>\"\r\n                        },\r\n                        {\r\n                            \"id\": \"<Item ID>\",\r\n                            \"title\": \"<Item Title>\",\r\n                            \"description\": \"<Item Description>\"\r\n                        }\r\n                    ]\r\n                }\r\n            ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://10.99.77.247:5001/api/WhatsAppUsers/SendListMessageWhatsapp?BranchId=1&BuddiesId=1&EmployeeId=1",
+							"protocol": "https",
+							"host": [
+								"10",
+								"99",
+								"77",
+								"247"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"WhatsAppUsers",
+								"SendListMessageWhatsapp"
+							],
+							"query": [
+								{
+									"key": "BranchId",
+									"value": "1"
+								},
+								{
+									"key": "BuddiesId",
+									"value": "1"
+								},
+								{
+									"key": "EmployeeId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

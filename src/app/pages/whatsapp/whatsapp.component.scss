@@ -1,4 +1,4 @@
-:host {
+app-whatsapp {
 	display: flex;
 	height: 100%;
 	width: 100%;
@@ -87,7 +87,13 @@ app-whatsapp-chat {
 	flex: 1;
 }
 
-app-whatsapp-friends-list {
+app-whatsapp-contact,
+app-whatsapp-chat {
+	flex: 1;
+}
+
+app-whatsapp-friends-list,
+app-whatsapp-contact-list {
 	min-width: 300px;
 	width: clamp(330px, 40%, 480px);
 }
