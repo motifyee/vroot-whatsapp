@@ -24,6 +24,7 @@ export class MessageStatuses
 
 	constructor(statuses: IMessageStatuses) {
 		super(statuses);
+		this.map();
 	}
 }
 
@@ -40,6 +41,7 @@ export class SimpleMessage
 
 	constructor(msg: ISimpleMessage) {
 		super(msg);
+		this.map();
 	}
 }
 
@@ -52,6 +54,7 @@ export class ButtonMessage
 
 	constructor(msg: IButtonMessage) {
 		super(msg);
+		this.map();
 	}
 }
 
@@ -74,6 +77,7 @@ export class InteractiveMessage
 			body: SimpleMessage,
 			buttons: ButtonMessage,
 		});
+		this.map();
 	}
 }
 
@@ -94,6 +98,7 @@ export class TemplateMessage
 			body: SimpleMessage,
 			footer: SimpleMessage,
 		});
+		this.map();
 	}
 }
 
@@ -146,6 +151,7 @@ export class Message extends Base<Message> implements IMessage {
 			interactive: InteractiveMessage,
 			template: TemplateMessage,
 		});
+		this.map();
 	}
 }
 

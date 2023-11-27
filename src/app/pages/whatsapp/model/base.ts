@@ -29,23 +29,22 @@ type Constructor<T> = {
 	init<T>(this: Constructor<T>, props: Partial<T>): T;
 };
 
-type ByRef<T> = {
+export type ByRef<T> = {
 	[key in keyof Partial<T>]: typeof Base<any> | typeof BaseArray<any>;
 };
 
-export class Base<T extends Base<never>> {
+export class Base<T extends Base<T>> {
 	// IdxSignature here is for when the interface doesn't match the class
-	constructor(
-		props: Partial<T | IdxSignature>,
-		byRef?: ByRef<T>,
-		onInit?: () => void,
-	) {
-		(async () => {
-			await new Promise(resolve => setTimeout(resolve, 0));
-			if (props) applyProps(this, props, byRef);
-
-			if (typeof onInit === 'function') onInit();
-		})();
+	props;
+	byRef = {} as ByRef<T>;
+	constructor(props: Partial<T | IdxSignature>, byRef?: ByRef<T>) {
+		this.props = props;
+		if (byRef) this.byRef = byRef;
+		// (async () => {
+		// 	await new Promise(resolve => setTimeout(resolve, 0));
+		// 	if (props) applyProps(this, props, byRef);
+		// 	if (type of onInit === 'function') onInit();
+		// })();
 	}
 
 	// static init(props?: IdxSignature) {
@@ -53,10 +52,10 @@ export class Base<T extends Base<never>> {
 	// 	return new this(props);
 	// }
 
-	// init(props?: Partial<T>) {
-	// 	if (!props) return;
-	// 	return new Base(props);
-	// }
+	map(props?: Partial<T | IdxSignature>, byRef?: ByRef<T>) {
+		if (!this.props) return;
+		applyProps(this, this.props, this.byRef);
+	}
 }
 
 export class BaseArray<T extends Base<T>> extends Array<Base<T>> {

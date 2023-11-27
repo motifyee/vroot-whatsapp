@@ -29,6 +29,7 @@ export class Group extends Base<Group> implements IGroup {
 
 	constructor(group: IGroup) {
 		super(group);
+		this.map();
 	}
 }
 
@@ -50,6 +51,7 @@ export class Permission extends Base<Permission> implements IPermission {
 
 	constructor(permission: IPermission) {
 		super(permission);
+		this.map();
 	}
 }
 

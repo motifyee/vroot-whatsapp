@@ -51,6 +51,7 @@ export class WhatsappComponent implements OnInit {
 	@ViewChild(WhatsappChatComponent) chatComponent?: WhatsappChatComponent;
 
 	ngOnInit(): void {
+		console.log('this.messages', this.messages);
 		console.log('this.chat', this.chat);
 		// setInterval(() => {}, 1000);
 		console.log('this.chatComponent', this.chatComponent);
@@ -61,7 +62,7 @@ export class WhatsappComponent implements OnInit {
 			_msg = this.messages[idx],
 			msg = new Message(_msg);
 
-		msg.id = (this.messages[this.messages.length - 1] as IMessage).id;
+		// msg.id = this.messages[this.messages.length - 1].id;
 		this.messages.push(msg);
 		this.cd.detectChanges();
 	}
