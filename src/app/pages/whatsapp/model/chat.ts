@@ -1,32 +1,30 @@
-import { Message } from './message';
+import { Message, Messages } from './message';
+import { IChat } from './chat.interface';
+import { Base } from './base';
 
-export interface IChat {
-	id: string;
-	name: string;
-	image: string;
-	lastMessage?: Message;
-	messages: Message[];
-}
-
-export class Chat implements IChat {
-	id: string;
-	name: string;
-	image: string;
+class _Chat extends Base<IChat> implements IChat {
+	id = '';
+	name = '';
+	image = '';
 	lastMessage?: Message;
 	messages = [] as Message[];
+}
 
-	constructor({ id, name, image, lastMessage, messages }: IChat) {
-		this.id = id;
-		this.name = name;
-		this.image = image;
-		this.lastMessage = lastMessage;
-		this.messages = messages;
+export class Chat extends _Chat {
+	constructor(chat: Partial<Chat | IChat>) {
+		const byRef = {
+				lastMessage: Message,
+				messages: Messages,
+			},
+			onInit = () => {
+				if (!this.lastMessage) {
+					this.lastMessage = this.messages[this.messages.length - 1];
+				}
+			};
 
-		if (!this.lastMessage) {
-			this.lastMessage = this.messages[this.messages.length - 1];
-		}
+		super(chat, byRef, onInit);
 	}
 }
 
-export const chat = (chat: IChat) => new Chat(chat);
-export const chatList = (chats: IChat[]) => chats.map(chat);
+// export const chat = (chat: IChat) => new Chat(chat);
+// export const chatList = (chats: IChat[]) => chats.map(chat);

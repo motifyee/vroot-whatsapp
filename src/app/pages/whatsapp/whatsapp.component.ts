@@ -13,8 +13,9 @@ import { WhatsappFriendsListComponent } from '../whatsapp/friends-list/friends-l
 import { WhatsappMenuComponent } from '../whatsapp/menu/menu.component';
 import { WhatsappContactComponent } from '../whatsapp/contact/contact.component';
 import { WhatsappContactListComponent } from '../whatsapp/contact-list/contact-list.component';
-import { chat } from './model/chat';
-import { messageList, IMessage, Message, message } from './model/message';
+import { Chat } from './model/chat';
+import { Message, Messages } from './model/message';
+import { IMessage } from './model/message.interface';
 import { messages } from './data/messages';
 import { RouterOutlet } from '@angular/router';
 import { BypassHtmlSanitizerPipe } from 'src/app/core/pipes/bypass-html-sanitizer/bypass-html-sanitizer.pipe';
@@ -38,26 +39,29 @@ import { BypassHtmlSanitizerPipe } from 'src/app/core/pipes/bypass-html-sanitize
 export class WhatsappComponent implements OnInit {
 	cd = inject(ChangeDetectorRef);
 	private _messages = messages as IMessage[];
-	messages = messageList(this._messages);
-	chat = chat({
+	messages = new Messages(this._messages);
+
+	chat = new Chat({
 		id: '342',
 		name: 'chad',
 		image: '',
-		messages: this.messages,
+		messages: this._messages,
 	});
 
 	@ViewChild(WhatsappChatComponent) chatComponent?: WhatsappChatComponent;
 
 	ngOnInit(): void {
+		console.log('this.chat', this.chat);
 		// setInterval(() => {}, 1000);
 		console.log('this.chatComponent', this.chatComponent);
 	}
 
 	addMessage() {
 		const idx = Math.floor(Math.random() * messages.length || 1 - 1),
-			msg: Message = message(this.messages[idx]);
+			_msg = this.messages[idx],
+			msg = new Message(_msg);
 
-		msg.id = this.messages[this.messages.length - 1].id;
+		msg.id = (this.messages[this.messages.length - 1] as IMessage).id;
 		this.messages.push(msg);
 		this.cd.detectChanges();
 	}

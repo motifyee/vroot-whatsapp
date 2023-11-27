@@ -14,7 +14,8 @@ import { UiUtilService } from 'src/app/core/services/ui-util/ui-util.service';
 import { WhatsappHeaderComponent } from '../header/header.component';
 import { Chat } from '../model/chat';
 import { WhatsappMessageComponent } from '../message/message.component';
-import { Message, MessageStatusIcon } from '../model/message';
+import { Message } from '../model/message';
+import { MessageStatusIcon } from '../model/message.interface';
 
 @Component({
 	standalone: true,
@@ -107,7 +108,7 @@ export class WhatsappChatComponent implements OnInit {
 	}
 
 	msgTrackByFn(_: number, msg: Message): string {
-		return msg.id;
+		return msg.id ?? '';
 	}
 
 	scrollToBottom(): void {

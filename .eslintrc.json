@@ -52,7 +52,10 @@
 					"keydown",
 					"keyup",
 					"keypress",
-					"acc"
+					"acc",
+					"namespace",
+					"ctor",
+					"cls"
 				],
 				"skipIfMatch": [
 					"http://[^s]*",

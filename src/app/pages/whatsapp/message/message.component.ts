@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { NgIf } from '@angular/common';
-import { Message, MessageStatusIcon } from '../model/message';
+import { Message } from '../model/message';
+import { MessageStatusIcon } from '../model/message.interface';
 import { BypassHtmlSanitizerPipe } from 'src/app/core/pipes/bypass-html-sanitizer/bypass-html-sanitizer.pipe';
 
 @Component({

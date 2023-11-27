@@ -1,0 +1,9 @@
+import { IMessage } from './message.interface';
+
+export interface IChat {
+	id: string;
+	name: string;
+	image: string;
+	lastMessage?: IMessage;
+	messages: IMessage[];
+}
