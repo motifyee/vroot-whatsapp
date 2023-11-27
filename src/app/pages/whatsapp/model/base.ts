@@ -52,7 +52,7 @@ export class Base<T extends Base<T>> {
 	// 	return new this(props);
 	// }
 
-	map(props?: Partial<T | IdxSignature>, byRef?: ByRef<T>) {
+	map() {
 		if (!this.props) return;
 		applyProps(this, this.props, this.byRef);
 	}
