@@ -34,7 +34,8 @@ export class AuthInterceptor implements HttpInterceptor {
 	 * marks the api as loading, loaded or error
 	 *
 	 * notifies the subscribers of `isAPILoading`, `isAPILoaded` and
-	 * `isAPIError` on the http service
+	 * `isAPIError` on the http service with the `apiLoadingKey` as the
+	 * grouping key to filter the notifications
 	 *
 	 * @param request HttpRequest
 	 * @param status `loading` | `loaded` | `error`
