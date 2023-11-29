@@ -1,14 +1,10 @@
 /* eslint-disable no-unused-vars */
 import { Injectable, inject } from '@angular/core';
-import { HttpService } from '../http.service';
-import { StorageService } from '@services/store/local-storage.service';
+import { HttpService, RequestOptions } from '../http.service';
+import { StorageService } from '@services/store/storage/storage.service';
 import { tap } from 'rxjs';
-import {
-	IUserSettings,
-	IUserLoginData,
-	IUserActions,
-	ILoginInfo,
-} from '@model/user.interface';
+import { IUserSettings, IUserActions, ILoginInfo } from '@model/user.interface';
+import { User } from '@app/core/model/user';
 /**
  * @description
  * stores:
@@ -31,33 +27,37 @@ export class UserService implements IUserActions {
 	put = this.http.put;
 	delete = this.http.delete;
 
-	login = (email: string, pwd: string) => {
-		return this.post<ILoginInfo>('api/login', { email, pwd }).pipe(
+	login = (email: string, pwd: string, opt: RequestOptions) => {
+		return this.post<ILoginInfo>('api/login', { email, pwd }, {}, opt).pipe(
 			tap(res => {
 				this.storage.set('token', res.token);
 			}),
 		);
 	};
 
-	logout = () => {
-		return this.get('api/logout').pipe(tap(() => this.storage.clear()));
+	logout = (opt: RequestOptions) => {
+		return this.get('api/logout', {}, opt).pipe(
+			tap(() => this.storage.clear()),
+		);
 	};
 
-	register = (email: string, pwd: string) =>
-		this.post<ILoginInfo>('api/register', { email, pwd }).pipe(
+	register = (email: string, pwd: string, opt: RequestOptions) =>
+		this.post<ILoginInfo>('api/register', { email, pwd }, {}, opt).pipe(
 			tap(res => {
 				this.storage.set('token', res.token);
 			}),
 		);
 
-	getUser = () => this.get('api/user');
+	getUser = (opt: RequestOptions) => this.get('api/user', {}, opt);
 
-	updateUser = (user: IUserLoginData) => this.put('api/user', user);
+	updateUser = (user: User, opt: RequestOptions) =>
+		this.put('api/user', user, {}, opt);
 
-	deleteUser = () => this.delete('api/user');
+	deleteUser = (opt: RequestOptions) => this.delete('api/user', {}, opt);
 
-	getUserSettings = () => this.get<IUserSettings>(`api/user/settings`);
+	getUserSettings = (opt: RequestOptions) =>
+		this.get<IUserSettings>(`api/user/settings`, {}, opt);
 
-	updateUserSettings = (settings: IUserSettings) =>
-		this.put('api/user/settings', settings);
+	updateUserSettings = (settings: IUserSettings, opt: RequestOptions) =>
+		this.put('api/user/settings', settings, {}, opt);
 }

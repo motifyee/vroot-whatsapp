@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+import { RequestOptions } from '../services/http/http.service';
 import { User } from './user';
 
 export interface IUser {
@@ -27,14 +28,14 @@ export interface IUserData extends IUser {
 }
 
 export interface IUserActions {
-	register: (email: string, pwd: string) => void;
-	login: (email: string, pwd: string) => void;
-	logout: () => void;
-	getUser: () => void;
-	updateUser: (user: User) => void;
-	deleteUser: () => void;
-	getUserSettings: () => void;
-	updateUserSettings: (settings: IUserSettings) => void;
+	register: (email: string, pwd: string, opt: RequestOptions) => void;
+	login: (email: string, pwd: string, opt: RequestOptions) => void;
+	logout: (opt: RequestOptions) => void;
+	getUser: (opt: RequestOptions) => void;
+	updateUser: (user: User, opt: RequestOptions) => void;
+	deleteUser: (opt: RequestOptions) => void;
+	getUserSettings: (opt: RequestOptions) => void;
+	updateUserSettings: (settings: IUserSettings, opt: RequestOptions) => void;
 }
 
 export interface IUserPermissions {

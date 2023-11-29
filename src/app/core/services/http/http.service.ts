@@ -1,12 +1,18 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject, filter } from 'rxjs';
+import { IdxSignature } from '@model/base';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class HttpService {
 	http = inject(HttpClient);
+
+	// =========================================================================
+	// API Loading Notification
+
+	public readonly API_LOADING_KEY = 'api-loading-key';
 
 	private _filterObs(
 		key: string | string[] | undefined,
@@ -38,19 +44,59 @@ export class HttpService {
 		return this._filterObs(key, this._isAPILoaded);
 	}
 
-	get<T>(url: string, headers = {}) {
+	// =========================================================================
+	// API Requests
+
+	private applyOptions(headers: IdxSignature, options: IdxSignature) {
+		const { apiLoadingKey } = options;
+		if (apiLoadingKey) headers[this.API_LOADING_KEY] = apiLoadingKey;
+		return headers;
+	}
+
+	get<T>(
+		url: string,
+		headers = {} as IdxSignature,
+		opt: RequestOptions = {},
+	) {
+		headers = this.applyOptions(headers, opt);
 		return this.http.get<T>(url, { headers });
 	}
 
-	post<T>(url: string, body = {}, headers = {}) {
+	post<T>(
+		url: string,
+		body = {} as IdxSignature,
+		headers = {},
+		opt: RequestOptions = {},
+	) {
+		headers = this.applyOptions(headers, opt);
 		return this.http.post<T>(url, body, { headers });
 	}
 
-	put<T>(url: string, body = {}, headers = {}) {
+	put<T>(
+		url: string,
+		body = {} as IdxSignature,
+		headers = {},
+		opt: RequestOptions = {},
+	) {
+		headers = this.applyOptions(headers, opt);
 		return this.http.put<T>(url, body, { headers });
 	}
 
-	delete<T>(url: string, headers = {}) {
+	delete<T>(
+		url: string,
+		headers = {} as IdxSignature,
+		opt: RequestOptions = {},
+	) {
+		headers = this.applyOptions(headers, opt);
 		return this.http.delete<T>(url, { headers });
 	}
 }
+
+/**
+ *
+ * @param apiLoadingKey a string to identify the api request to receive loading
+ * notifications. If not provided, the url will be used as the key instead.
+ */
+export type RequestOptions = {
+	apiLoadingKey?: string;
+};

@@ -26,6 +26,7 @@ export class AuthInterceptor implements HttpInterceptor {
 	private isAPILoading = this.http.isAPILoading;
 	private isAPILoaded = this.http.isAPILoaded;
 	private isAPIError = this.http.isAPIError;
+	private API_LOADING_KEY = this.http.API_LOADING_KEY;
 
 	private loadingAPIs = new Map<string, string>();
 
@@ -45,8 +46,8 @@ export class AuthInterceptor implements HttpInterceptor {
 		const url = request.url;
 
 		if (status === 'loading') {
-			const apiLoadingKey = request.headers.get('api-loading-key');
-			request.headers.delete('api-loading-key');
+			const apiLoadingKey = request.headers.get(this.API_LOADING_KEY);
+			request.headers.delete(this.API_LOADING_KEY);
 
 			this.loadingAPIs.set(url, apiLoadingKey || url || '');
 			this.isAPILoading.next(apiLoadingKey || url || '');

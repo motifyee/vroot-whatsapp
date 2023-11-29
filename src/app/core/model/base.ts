@@ -3,7 +3,7 @@
 import { JSONParse } from '../utils/util';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-interface IdxSignature {
+export interface IdxSignature {
 	[key: string]: any;
 }
 
