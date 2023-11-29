@@ -7,9 +7,10 @@
 	--storke: #aaa;
 
 	.avatar {
+		min-height: 40px;
+		min-width: 40px;
 		&:not(:has(img)) {
-			border: 0;
-			height: 0;
+			visibility: hidden;
 		}
 	}
 

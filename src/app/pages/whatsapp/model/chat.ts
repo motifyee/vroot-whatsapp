@@ -1,6 +1,6 @@
 import { Message, Messages } from './message';
 import { IChat } from './chat.interface';
-import { Base, ByRef } from './base';
+import { Base, ByRef } from '@model/base';
 
 export class Chat extends Base<Chat> implements IChat {
 	id = '';

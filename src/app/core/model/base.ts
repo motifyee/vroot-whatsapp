@@ -1,4 +1,7 @@
 /* eslint-disable no-unused-vars */
+
+import { JSONParse } from '../utils/util';
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 interface IdxSignature {
 	[key: string]: any;
@@ -20,6 +23,13 @@ export function applyProps(
 				: new (baseClass as typeof Base<any>)(value);
 		}
 
+		const t = typeof obj[key];
+		if (t === 'boolean') value = !!value;
+		else if (t === 'number') value = +value;
+		else if (t === 'bigint') value = BigInt(value);
+		else if (t === 'object') value = JSONParse(value);
+		else if (t === 'symbol') value = Symbol(value);
+
 		obj[key] = value;
 	}
 }
@@ -33,13 +43,13 @@ export type ByRef<T> = {
 	[key in keyof Partial<T>]: typeof Base<any> | typeof BaseArray<any>;
 };
 
-export class Base<T extends Base<T>> {
+export class Base<T extends Base<T> = never> {
 	// IdxSignature here is for when the interface doesn't match the class
-	props;
-	byRef = {} as ByRef<T>;
+	private __props__;
+	private __byRef__ = {} as ByRef<T>;
 	constructor(props: Partial<T | IdxSignature>, byRef?: ByRef<T>) {
-		this.props = props;
-		if (byRef) this.byRef = byRef;
+		this.__props__ = props;
+		if (byRef) this.__byRef__ = byRef;
 		// (async () => {
 		// 	await new Promise(resolve => setTimeout(resolve, 0));
 		// 	if (props) applyProps(this, props, byRef);
@@ -53,8 +63,8 @@ export class Base<T extends Base<T>> {
 	// }
 
 	map() {
-		if (!this.props) return;
-		applyProps(this, this.props, this.byRef);
+		if (!this.__props__) return;
+		applyProps(this, this.__props__, this.__byRef__);
 	}
 }
 

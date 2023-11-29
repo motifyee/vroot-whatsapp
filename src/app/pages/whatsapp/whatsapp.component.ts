@@ -3,7 +3,6 @@ import {
 	Component,
 	HostListener,
 	OnInit,
-	ViewChild,
 	ViewEncapsulation,
 	inject,
 } from '@angular/core';
@@ -14,7 +13,7 @@ import { WhatsappMenuComponent } from '../whatsapp/menu/menu.component';
 import { WhatsappContactComponent } from '../whatsapp/contact/contact.component';
 import { WhatsappContactListComponent } from '../whatsapp/contact-list/contact-list.component';
 import { Chat } from './model/chat';
-import { Message, Messages } from './model/message';
+import { Message } from './model/message';
 import { IMessage } from './model/message.interface';
 import { messages } from './data/messages';
 import { RouterOutlet } from '@angular/router';
@@ -39,7 +38,6 @@ import { BypassHtmlSanitizerPipe } from 'src/app/core/pipes/bypass-html-sanitize
 export class WhatsappComponent implements OnInit {
 	cd = inject(ChangeDetectorRef);
 	private _messages = messages as IMessage[];
-	messages = new Messages(this._messages);
 
 	chat = new Chat({
 		id: '342',
@@ -48,22 +46,22 @@ export class WhatsappComponent implements OnInit {
 		messages: this._messages,
 	});
 
-	@ViewChild(WhatsappChatComponent) chatComponent?: WhatsappChatComponent;
+	// @ViewChild(WhatsappChatComponent) chatComponent?: WhatsappChatComponent;
 
 	ngOnInit(): void {
-		console.log('this.messages', this.messages);
-		console.log('this.chat', this.chat);
-		// setInterval(() => {}, 1000);
-		console.log('this.chatComponent', this.chatComponent);
+		console.log('chat', this.chat);
 	}
 
 	addMessage() {
-		const idx = Math.floor(Math.random() * messages.length || 1 - 1),
-			_msg = this.messages[idx],
+		const messages = this.chat.messages,
+			idx = Math.floor(Math.random() * messages.length || 1 - 1),
+			_msg = messages[idx],
 			msg = new Message(_msg);
 
-		// msg.id = this.messages[this.messages.length - 1].id;
-		this.messages.push(msg);
+		msg.id = messages[messages.length - 1].id;
+		messages.push(msg);
+		console.log('msg', msg);
+		console.log('this.messages', messages);
 		this.cd.detectChanges();
 	}
 

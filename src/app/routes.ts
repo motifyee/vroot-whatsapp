@@ -16,11 +16,19 @@ export const routes: Route[] = [
 		pathMatch: 'full',
 	},
 	{
+		path: 'auth',
+		loadChildren: () =>
+			import('./pages/auth/routes').then(m => m.AUTH_ROUTES),
+	},
+	{
+		path: 'settings',
+		loadChildren: () =>
+			import('./pages/settings/routes').then(m => m.SETTINGS_ROUTES),
+	},
+	{
 		path: 'whatsapp',
 		loadChildren: () =>
-			import('./pages/whatsapp/whatsapp-routs').then(
-				m => m.WHATSAPP_ROUTES,
-			),
+			import('./pages/whatsapp/routes').then(m => m.WHATSAPP_ROUTES),
 	},
 	{
 		path: '**',

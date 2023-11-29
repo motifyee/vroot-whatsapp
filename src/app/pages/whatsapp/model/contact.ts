@@ -1,4 +1,4 @@
-import { Base, BaseArray } from './base';
+import { Base, BaseArray } from '@model/base';
 import { IContact, IGroup, IPermission } from './contact.interface';
 
 export class Contact extends Base<Contact> implements IContact {
@@ -23,7 +23,7 @@ export class Contact extends Base<Contact> implements IContact {
 	}
 }
 
-export class Group extends Base<Group> implements IGroup {
+export class Group extends Base implements IGroup {
 	id = '';
 	name = '';
 
@@ -44,7 +44,7 @@ export class Groups extends BaseArray<Group> {
 	}
 }
 
-export class Permission extends Base<Permission> implements IPermission {
+export class Permission extends Base implements IPermission {
 	id = '';
 	name = '';
 	allowed: boolean | number | string = false;

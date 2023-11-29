@@ -1,4 +1,4 @@
-import { Base, BaseArray } from './base';
+import { Base, BaseArray } from '@model/base';
 import { Contact } from './contact';
 import {
 	IMessage,
@@ -28,10 +28,7 @@ export class MessageStatuses
 	}
 }
 
-export class SimpleMessage
-	extends Base<SimpleMessage>
-	implements ISimpleMessage
-{
+export class SimpleMessage extends Base implements ISimpleMessage {
 	id = '';
 	type?: SimpleMessageType;
 	body?: string;
@@ -45,10 +42,7 @@ export class SimpleMessage
 	}
 }
 
-export class ButtonMessage
-	extends Base<ButtonMessage>
-	implements IButtonMessage
-{
+export class ButtonMessage extends Base implements IButtonMessage {
 	id = '';
 	title = '';
 
@@ -107,7 +101,7 @@ export class Message extends Base<Message> implements IMessage {
 	timestamp = '';
 	to?: string;
 
-	from_us?: boolean;
+	from_us = false;
 	contact?: Contact;
 	sender?: Contact;
 	context?: Message;

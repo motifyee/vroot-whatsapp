@@ -55,7 +55,8 @@
 					"acc",
 					"namespace",
 					"ctor",
-					"cls"
+					"cls",
+					"otp"
 				],
 				"skipIfMatch": [
 					"http://[^s]*",

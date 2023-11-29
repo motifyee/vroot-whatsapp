@@ -56,7 +56,7 @@ export interface IMessage {
 	timestamp: string;
 	to?: string;
 
-	from_us?: boolean;
+	from_us: boolean;
 	contact?: IContact;
 	sender?: IContact;
 	context?: IMessage;

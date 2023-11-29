@@ -42,8 +42,14 @@
 			"@shared/*": [
 				"./src/app/shared/*"
 			],
+			"@model/*": [
+				"./src/app/core/model/*"
+			],
 			"@services/*": [
 				"./src/app/core/services/*"
+			],
+			"@store/*": [
+				"./src/app/core/store/*"
 			],
 			"@pipes/*": [
 				"./src/app/core/pipes/*"
