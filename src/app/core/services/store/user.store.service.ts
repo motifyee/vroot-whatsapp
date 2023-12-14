@@ -1,19 +1,17 @@
 import { Injectable, inject } from '@angular/core';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
-import { IUserData } from '@model/user.interface';
-import { StorageService } from './storage/storage.service';
-import { UserData } from '@model/user';
+import { Observable, tap } from 'rxjs';
+import { User } from '@model/user';
+import { StoreService } from './store.service';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class UserStoreService {
-	storage = inject(StorageService);
+	store = inject(StoreService);
 
-	private userSubject = new BehaviorSubject<IUserData | null>(null);
-	private _user$: Observable<IUserData | null> | undefined;
+	private _user$: Observable<User | null> | undefined;
 	get user$() {
-		this._user$ ??= this.userSubject.asObservable().pipe(
+		this._user$ ??= this.store.userSubject.asObservable().pipe(
 			tap(user => {
 				// should redirect to login page if user is null
 				if (!user)
@@ -26,12 +24,8 @@ export class UserStoreService {
 		return this._user$;
 	}
 
-	loadUserData() {
-		const userData = this.storage.get<IUserData>('user', true) as IUserData;
-		if (userData) this.userSubject.next(new UserData(userData));
-	}
-
-	constructor() {
-		this.loadUserData();
+	set user(user: User) {
+		this.store.save('user', user, true);
 	}
 }
+// user,

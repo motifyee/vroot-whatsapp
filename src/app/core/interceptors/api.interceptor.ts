@@ -40,7 +40,7 @@ export class AuthInterceptor implements HttpInterceptor {
 	 * @param request HttpRequest
 	 * @param status `loading` | `loaded` | `error`
 	 */
-	private setAPILoading(
+	private notifyAPILoading(
 		request: HttpRequest<unknown>,
 		status?: APILoadingStatus,
 	) {
@@ -61,13 +61,13 @@ export class AuthInterceptor implements HttpInterceptor {
 	}
 
 	// =========================================================================
-	// Add Token to Request
+	// Add Common Headers And Token To Request
 
 	/**
 	 * add token to the request's headers
 	 * @param request HttpRequest
 	 */
-	private addToken(request: HttpRequest<unknown>) {
+	private appendToken(request: HttpRequest<unknown>) {
 		const token = this.storage.get('token'),
 			setParams = {
 				Accept: 'application/json',
@@ -100,7 +100,7 @@ export class AuthInterceptor implements HttpInterceptor {
 			>,
 		) => {
 			// if (error.status === 401) { this.router.navigate(['login']); }
-			this.setAPILoading(request, 'error');
+			this.notifyAPILoading(request, 'error');
 
 			caught.subscribe();
 			return throwError(err as never);
@@ -113,12 +113,12 @@ export class AuthInterceptor implements HttpInterceptor {
 		request: HttpRequest<unknown>,
 		next: HttpHandler,
 	): Observable<HttpEvent<unknown>> {
-		this.setAPILoading(request, 'loading');
+		this.notifyAPILoading(request, 'loading');
 
-		request = this.addToken(request);
+		request = this.appendToken(request);
 
 		return next.handle(request).pipe(
-			tap(() => this.setAPILoading(request)),
+			tap(() => this.notifyAPILoading(request)),
 			catchError(this.handleError(request)),
 		);
 	}
